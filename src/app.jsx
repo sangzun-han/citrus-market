@@ -5,15 +5,15 @@ import Test from "./components/test";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [splash, setSplash] = useState(false);
+  const [splash, setSplash] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
-      setSplash(true);
+      setSplash(false);
     }, 1000);
   }, []);
 
-  if (!splash) return <Splash />;
+  if (splash) return <Splash />;
 
   return (
     <>
