@@ -1,6 +1,6 @@
 import "./app.css";
 import { Route } from "react-router-dom";
-import Splash from "./components/splash";
+import Splash from "./components/splash/splash";
 import Test from "./components/test";
 import { useEffect, useState } from "react";
 
