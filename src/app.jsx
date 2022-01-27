@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Splash from "./components/splash/splash";
 import Login from "./components/login/login";
+import LoginEmail from "./components/loginEmail/loginEmail";
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -19,6 +20,9 @@ function App() {
     <>
       <Route exact path="/">
         <Login />
+      </Route>
+      <Route path="/email-login">
+        <LoginEmail />
       </Route>
     </>
   );

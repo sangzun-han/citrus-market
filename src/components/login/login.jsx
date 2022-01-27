@@ -26,7 +26,7 @@ const Login = () => {
         </div>
 
         <div className={styles.account}>
-          <Link to="">
+          <Link to="/email-login">
             <span className={styles.email}>이메일로 로그인</span>
           </Link>
           <Link to="">
