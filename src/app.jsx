@@ -1,8 +1,8 @@
 import "./app.css";
 import { Route } from "react-router-dom";
-import Splash from "./components/splash/splash";
-import Test from "./components/test";
 import { useEffect, useState } from "react";
+import Splash from "./components/splash/splash";
+import Login from "./components/login/login";
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Route exact path="/">
-        <Test />
+        <Login />
       </Route>
     </>
   );

@@ -1,0 +1,74 @@
+.background {
+  width: 100%;
+  height: 100vh;
+  background-color: #ea7f42;
+}
+
+.logo {
+  text-align: center;
+  position: relative;
+  top: 25%;
+}
+
+.logo img {
+  width: 144px;
+  height: 144px;
+}
+
+.login_wrap {
+  position: fixed;
+  bottom: -5%;
+  width: 100%;
+  height: 362px;
+  background: #fff;
+  border-radius: 20px;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 34px 17px 50px;
+}
+
+.login_button {
+  width: 322px;
+  height: 44px;
+  border-radius: 44px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.login_button img {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+.kakao_login {
+  border: 1px solid #f2c94c;
+}
+
+.fb_login {
+  border: 1px solid #767676;
+}
+
+.google_login {
+  border: 1px solid #2d9cd8;
+}
+
+.account {
+  text-align: center;
+}
+
+.account span {
+  color: #767676;
+  font-size: 12px;
+}
+
+.email:after {
+  content: "|";
+  width: 4px;
+  height: 15px;
+  margin: 0px 6px;
+}
