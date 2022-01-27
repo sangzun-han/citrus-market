@@ -45,6 +45,14 @@
   margin-bottom: 30px;
 }
 
+.err {
+  color: #eb5757;
+  font-size: 12px;
+  line-height: 14px;
+  position: absolute;
+  bottom: 15%;
+  left: 0;
+}
 .login_btn {
   width: 322px;
   height: 44px;

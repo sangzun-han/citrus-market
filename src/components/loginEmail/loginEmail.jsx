@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { login } from "../../service/fetcher";
 import styles from "./loginEmail.module.css";
 
 const LoginEmail = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [valid, setValid] = useState(false);
+  const [message, setMessage] = useState(null);
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -19,6 +21,21 @@ const LoginEmail = () => {
     setPassword(passwordRef.current.value);
   };
 
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const userData = {
+      user: {
+        email: emailRef.current.value,
+        password: passwordRef.current.value,
+      },
+    };
+    login(userData).then((res) => {
+      if (res.message) {
+        setMessage(res.message);
+      }
+    });
+  };
+
   useEffect(() => {
     if (email && password) {
       setValid(true);
@@ -26,6 +43,7 @@ const LoginEmail = () => {
       setValid(false);
     }
   }, [email, password]);
+
   return (
     <article>
       <h1 className={styles.title}>로그인</h1>
@@ -53,8 +71,14 @@ const LoginEmail = () => {
               type="text"
               onChange={handlePassword}
             />
+            <span className={styles.err}>* {message}</span>
           </div>
-          <button className={`${styles.login_btn} ${allInput}`}>로그인</button>
+          <button
+            className={`${styles.login_btn} ${allInput}`}
+            onClick={handleLogin}
+          >
+            로그인
+          </button>
         </form>
         <div className={styles.link}>
           <Link to="/signup">이메일로 회원가입</Link>
