@@ -29,7 +29,7 @@ const Login = () => {
           <Link to="/email-login">
             <span className={styles.email}>이메일로 로그인</span>
           </Link>
-          <Link to="">
+          <Link to="/signup">
             <span>회원가입</span>
           </Link>
         </div>

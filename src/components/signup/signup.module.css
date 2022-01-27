@@ -1,0 +1,73 @@
+.title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.input_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.account {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 15px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #767676;
+}
+
+.input {
+  width: 322px;
+  height: 48px;
+  margin-bottom: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.input:focus {
+  border-bottom: 1px solid #f26e22;
+}
+
+.input::placeholder {
+  position: absolute;
+  top: 50%;
+  color: #dbdbdb;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 400;
+}
+
+.pwd {
+  margin-bottom: 30px;
+}
+
+.login_btn {
+  width: 322px;
+  height: 44px;
+  border-radius: 44px;
+  background-color: #ffc7a7;
+  border: none;
+  font-size: 14px;
+  line-height: 18px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.on {
+  background-color: #f26e22;
+}

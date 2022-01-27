@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import styles from "./loginEmail.module.css";
+import styles from "./signup.module.css";
 
-const LoginEmail = () => {
+const Signup = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [valid, setValid] = useState(false);
@@ -28,7 +27,7 @@ const LoginEmail = () => {
   }, [email, password]);
   return (
     <article>
-      <h1 className={styles.title}>로그인</h1>
+      <h1 className={styles.title}>이메일로 회원가입</h1>
 
       <section className={styles.input_wrap}>
         <form action="">
@@ -40,6 +39,7 @@ const LoginEmail = () => {
               ref={emailRef}
               className={styles.input}
               type="text"
+              placeholder="이메일 주소를 입력해 주세요"
               onChange={handleEmail}
             />
           </div>
@@ -51,17 +51,15 @@ const LoginEmail = () => {
               ref={passwordRef}
               className={`${styles.input} ${styles.pwd}`}
               type="text"
+              placeholder="비밀번호를 설정해 주세요"
               onChange={handlePassword}
             />
           </div>
-          <button className={`${styles.login_btn} ${allInput}`}>로그인</button>
+          <button className={`${styles.login_btn} ${allInput}`}>다음</button>
         </form>
-        <div className={styles.link}>
-          <Link to="/signup">이메일로 회원가입</Link>
-        </div>
       </section>
     </article>
   );
 };
 
-export default LoginEmail;
+export default Signup;
