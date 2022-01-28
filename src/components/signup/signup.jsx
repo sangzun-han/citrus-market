@@ -4,9 +4,9 @@ import styles from "./signup.module.css";
 
 const Signup = () => {
   const [email, setEmail] = useState(null);
-  const [emailValid, setEmailValid] = useState(false);
+  const [emailValid, setEmailValid] = useState(null);
   const [password, setPassword] = useState(null);
-  const [valid, setValid] = useState(false);
+  const [valid, setValid] = useState("");
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -17,9 +17,13 @@ const Signup = () => {
   };
 
   const handleEmailValid = (event) => {
+    const userData = {
+      user: {
+        email: emailRef.current.value,
+      },
+    };
     event.preventDefault();
-    checkEmail("/user/emailvalid", emailRef.current.value).then((res) => {
-      console.log(res);
+    checkEmail(userData).then((res) => {
       setEmailValid(res);
     });
   };
@@ -53,8 +57,13 @@ const Signup = () => {
               onChange={handleEmail}
             />
           </div>
-          <span className={styles.emailValid}>{emailValid.message}</span>
-
+          <span className={styles.emailValid}>
+            {emailValid
+              ? "사용 가능한 이메일 입니다."
+              : emailValid === null
+              ? ""
+              : "이미 가입된 이메일 주소 입니다."}
+          </span>
           <div className={styles.account}>
             <label className={styles.label} htmlFor="password">
               비밀번호
