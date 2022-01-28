@@ -19,6 +19,7 @@ const Signup = () => {
   const handleEmailValid = (event) => {
     event.preventDefault();
     checkEmail("/user/emailvalid", emailRef.current.value).then((res) => {
+      console.log(res);
       setEmailValid(res);
     });
   };
@@ -39,7 +40,7 @@ const Signup = () => {
       <h1 className={styles.title}>이메일로 회원가입</h1>
 
       <section className={styles.input_wrap}>
-        <form action="">
+        <form>
           <div className={styles.account}>
             <label className={styles.label} htmlFor="email">
               이메일
@@ -52,6 +53,8 @@ const Signup = () => {
               onChange={handleEmail}
             />
           </div>
+          <span className={styles.emailValid}>{emailValid.message}</span>
+
           <div className={styles.account}>
             <label className={styles.label} htmlFor="password">
               비밀번호

@@ -46,6 +46,13 @@
   font-weight: 400;
 }
 
+.emailValid {
+  position: relative;
+  bottom: 15px;
+  color: #eb5757;
+  font-size: 12px;
+  line-height: 14px;
+}
 .pwd {
   margin-bottom: 30px;
 }
