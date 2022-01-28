@@ -16,3 +16,14 @@ export const login = async (userData) => {
   const res = await axios(postConfig("/user/login", userData));
   return res.data;
 };
+
+export const checkEmail = async (url, email) => {
+  const data = {
+    user: {
+      email,
+    },
+  };
+
+  const res = await axios(postConfig(url, data));
+  return res.data;
+};

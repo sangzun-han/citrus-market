@@ -15,14 +15,11 @@
 
 .account {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  position: relative;
 }
 
 .label {
-  position: absolute;
-  top: 0;
-  left: 0;
   line-height: 15px;
   font-size: 12px;
   font-weight: 500;
@@ -30,8 +27,8 @@
 }
 
 .input {
-  width: 322px;
-  height: 48px;
+  width: 100%;
+  padding: 8px 0;
   margin-bottom: 16px;
   border: none;
   outline: none;
@@ -43,8 +40,6 @@
 }
 
 .input::placeholder {
-  position: absolute;
-  top: 50%;
   color: #dbdbdb;
   font-size: 14px;
   line-height: 14px;

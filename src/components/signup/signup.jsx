@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+import { checkEmail } from "../../service/fetcher";
 import styles from "./signup.module.css";
 
 const Signup = () => {
   const [email, setEmail] = useState(null);
+  const [emailValid, setEmailValid] = useState(false);
   const [password, setPassword] = useState(null);
   const [valid, setValid] = useState(false);
   const emailRef = useRef();
@@ -12,6 +14,13 @@ const Signup = () => {
 
   const handleEmail = () => {
     setEmail(emailRef.current.value);
+  };
+
+  const handleEmailValid = (event) => {
+    event.preventDefault();
+    checkEmail("/user/emailvalid", emailRef.current.value).then((res) => {
+      setEmailValid(res);
+    });
   };
 
   const handlePassword = () => {
@@ -55,7 +64,12 @@ const Signup = () => {
               onChange={handlePassword}
             />
           </div>
-          <button className={`${styles.login_btn} ${allInput}`}>다음</button>
+          <button
+            className={`${styles.login_btn} ${allInput}`}
+            onClick={handleEmailValid}
+          >
+            다음
+          </button>
         </form>
       </section>
     </article>

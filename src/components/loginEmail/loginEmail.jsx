@@ -71,7 +71,7 @@ const LoginEmail = () => {
               type="text"
               onChange={handlePassword}
             />
-            <span className={styles.err}>* {message}</span>
+            <span className={styles.err}>{message}</span>
           </div>
           <button
             className={`${styles.login_btn} ${allInput}`}
