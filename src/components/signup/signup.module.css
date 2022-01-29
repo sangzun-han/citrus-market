@@ -46,7 +46,7 @@
   font-weight: 400;
 }
 
-.emailValid {
+.err {
   position: relative;
   bottom: 15px;
   color: #eb5757;
