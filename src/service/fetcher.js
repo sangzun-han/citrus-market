@@ -23,3 +23,8 @@ export const checkEmail = async (userData) => {
   else if (res.data.message === "잘못된 접근입니다.") return null;
   else return false;
 };
+
+export const join = async (userData) => {
+  const res = await axios(postConfig("/join", userData));
+  return res;
+};

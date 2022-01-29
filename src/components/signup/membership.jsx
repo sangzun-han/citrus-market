@@ -54,12 +54,12 @@ const Membership = ({ setEmail, setPassword }) => {
 
   // 이메일 중복 유효성 검사 && 패스워드 유효성검사
   useEffect(() => {
-    if (emailCheck() && passwordCheck() && emailValid) {
+    if (emailValid && passwordValid) {
       setValid(true);
     } else {
       setValid(false);
     }
-  }, [emailValid, emailCheck, passwordCheck]);
+  }, [emailValid, passwordValid]);
 
   return (
     <article>
