@@ -1,16 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import { checkEmail } from "../../service/fetcher";
-import styles from "./signup.module.css";
+import styles from "./membership.module.css";
 
-const Signup = () => {
+const Membership = ({ setEmail, setPassword }) => {
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  const [email, setEmail] = useState(null);
   const [emailValid, setEmailValid] = useState(null);
 
-  const [password, setPassword] = useState(null);
-  const [passwordValid, setPasswordValid] = useState(false);
+  const [passwordValid, setPasswordValid] = useState(null);
 
   const [valid, setValid] = useState(false);
   const allInput = valid === true ? styles.on : "";
@@ -37,7 +35,6 @@ const Signup = () => {
       };
       checkEmail(userData).then((res) => {
         setEmailValid(res);
-        setEmail(emailRef.current.value);
       });
     } else {
       setEmailValid(null);
@@ -48,6 +45,11 @@ const Signup = () => {
   const handlePasswordValid = () => {
     if (passwordCheck()) setPasswordValid(true);
     else setPasswordValid(false);
+  };
+
+  const onSubmit = () => {
+    setEmail(emailRef.current.value);
+    setPassword(passwordRef.current.value);
   };
 
   // 이메일 중복 유효성 검사 && 패스워드 유효성검사
@@ -95,12 +97,17 @@ const Signup = () => {
               onChange={handlePasswordValid}
             />
             <span className={styles.err}>
-              {passwordValid ? "" : "비밀번호는 6자리 이상이어야 합니다."}
+              {passwordValid
+                ? ""
+                : passwordValid === null
+                ? ""
+                : "비밀번호는 6자리 이상이어야 합니다."}
             </span>
           </div>
           <button
             className={`${styles.login_btn}  ${allInput}`}
             disabled={!valid}
+            onClick={onSubmit}
           >
             다음
           </button>
@@ -110,4 +117,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Membership;
