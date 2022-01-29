@@ -12,20 +12,27 @@ const Signup = () => {
 
   const allInput = valid === true ? styles.on : "";
 
-  const handleEmail = () => {
-    setEmail(emailRef.current.value);
+  const emailCheck = () => {
+    const reg =
+      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
+    return reg.test(emailRef.current.value);
   };
 
   const handleEmailValid = (event) => {
-    const userData = {
-      user: {
-        email: emailRef.current.value,
-      },
-    };
-    event.preventDefault();
-    checkEmail(userData).then((res) => {
-      setEmailValid(res);
-    });
+    if (emailCheck()) {
+      event.preventDefault();
+      const userData = {
+        user: {
+          email: emailRef.current.value,
+        },
+      };
+      checkEmail(userData).then((res) => {
+        setEmailValid(res);
+        setEmail(emailRef.current.value);
+      });
+    } else {
+      setEmailValid(null);
+    }
   };
 
   const handlePassword = () => {
@@ -54,7 +61,7 @@ const Signup = () => {
               className={styles.input}
               type="text"
               placeholder="이메일 주소를 입력해 주세요"
-              onChange={handleEmail}
+              onBlur={handleEmailValid}
             />
           </div>
           <span className={styles.emailValid}>
@@ -77,8 +84,8 @@ const Signup = () => {
             />
           </div>
           <button
-            className={`${styles.login_btn} ${allInput}`}
-            onClick={handleEmailValid}
+            className={`${styles.login_btn}  ${allInput}`}
+            disabled={!valid}
           >
             다음
           </button>
