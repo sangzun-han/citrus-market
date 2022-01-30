@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { checkAccountName } from "../../service/fetcher";
 import styles from "./profile.module.css";
 
@@ -8,15 +8,20 @@ const Profile = ({ setUserName, setAccountName, setIntro, setImage }) => {
   const accountNameRef = useRef();
   const introRef = useRef();
 
+  const [userNameValid, setUserNameValid] = useState(false);
   const [accountValid, setAccountValid] = useState(null);
   const [accountDuplicate, setAccountDuplicate] = useState(null);
+  const [introValid, setIntroValid] = useState(null);
+
+  const [valid, setValid] = useState(false);
 
   // 사용자 이름 유효성 검사
-  const checkUserName = () =>
+  const checkUserName = () => {
     userNameRef.current.value.length <= 10 &&
     userNameRef.current.value.length >= 2
-      ? true
-      : false;
+      ? setUserNameValid(true)
+      : setUserNameValid(false);
+  };
 
   // 계정 아이디 유효성 검사
   const checkAccountValid = () => {
@@ -46,6 +51,21 @@ const Profile = ({ setUserName, setAccountName, setIntro, setImage }) => {
       }
     }
   };
+
+  // 소개 유효성 검사
+  const checkIntro = () => {
+    introRef.current.value ? setIntroValid(true) : setIntroValid(false);
+  };
+
+  // 중복, 유효성 모두 통과되면 버튼 활성화
+  useEffect(() => {
+    if (userNameValid && accountValid && accountDuplicate && introValid) {
+      setValid(true);
+    } else {
+      setValid(false);
+    }
+  }, [userNameValid, accountValid, accountDuplicate, introValid]);
+
   return (
     <article>
       <section className={styles.info}>
@@ -82,6 +102,7 @@ const Profile = ({ setUserName, setAccountName, setIntro, setImage }) => {
             ref={userNameRef}
             type="text"
             placeholder="2~10자 이내여야 합니다."
+            onBlur={checkUserName}
           />
         </div>
 
@@ -109,10 +130,18 @@ const Profile = ({ setUserName, setAccountName, setIntro, setImage }) => {
         <div className={styles.input_wrap}>
           <label htmlFor="intro">소개</label>
           <input
-            rer={introRef}
+            ref={introRef}
             type="text"
             placeholder="자신과 판매할 상품에 대해 소개해 주세요!"
+            onBlur={checkIntro}
           />
+          <span className={styles.err}>
+            {introValid === null
+              ? ""
+              : introValid === false
+              ? "소개를 입력해주세요"
+              : ""}
+          </span>
         </div>
         <button className={styles.start_btn}>감귤마켓 시작하기</button>
       </section>
