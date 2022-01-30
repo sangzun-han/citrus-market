@@ -15,14 +15,12 @@
 
 .account {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   position: relative;
 }
 
 .label {
-  position: absolute;
-  top: 0;
-  left: 0;
   line-height: 15px;
   font-size: 12px;
   font-weight: 500;
@@ -30,8 +28,8 @@
 }
 
 .input {
-  width: 322px;
-  height: 48px;
+  width: 100%;
+  padding: 8px 0;
   margin-bottom: 16px;
   border: none;
   outline: none;
@@ -41,16 +39,13 @@
 .input:focus {
   border-bottom: 1px solid #f26e22;
 }
-.pwd {
-  margin-bottom: 30px;
-}
 
 .err {
   color: #eb5757;
   font-size: 12px;
   line-height: 14px;
   position: absolute;
-  bottom: 15%;
+  bottom: 0;
   left: 0;
 }
 .login_btn {
@@ -63,6 +58,7 @@
   line-height: 18px;
   color: #ffffff;
   text-align: center;
+  margin-top: 30px;
   margin-bottom: 20px;
   disabled: true;
 }

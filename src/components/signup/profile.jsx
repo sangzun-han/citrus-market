@@ -83,7 +83,8 @@ const Profile = ({ setUserName, setAccountName, setIntro, setImage }) => {
     introRef.current.value ? setIntroValid(true) : setIntroValid(false);
   };
 
-  const onSubmit = () => {
+  const onSubmit = (event) => {
+    event.preventDefault();
     imageUpload().then(() => {
       setUserName(userNameRef.current.value);
       setAccountName(accountNameRef.current.value);

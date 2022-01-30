@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { join } from "../../service/fetcher";
 import Membership from "./membership";
 import Profile from "./profile";
 
 const Signup = () => {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
@@ -25,10 +27,13 @@ const Signup = () => {
       };
 
       join(userData).then((res) => {
-        console.log(res.data.message);
+        if (res) history.push("/email-login");
+        else {
+          alert("회원가입에 실패했습니다. 다시 시도해주세요!");
+        }
       });
     }
-  }, [email, password, userName, accountName, intro, image]);
+  }, [email, password, userName, accountName, intro, image, history]);
 
   if (email && password) {
     return (

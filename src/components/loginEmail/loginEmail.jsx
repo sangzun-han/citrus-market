@@ -7,6 +7,7 @@ const LoginEmail = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [valid, setValid] = useState(false);
+
   const [message, setMessage] = useState(null);
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -30,8 +31,11 @@ const LoginEmail = () => {
       },
     };
     login(userData).then((res) => {
-      if (res.message) {
-        setMessage(res.message);
+      console.log(res);
+      if (res) {
+        setMessage(res);
+      } else {
+        setMessage(false);
       }
     });
   };
@@ -68,10 +72,16 @@ const LoginEmail = () => {
             <input
               ref={passwordRef}
               className={`${styles.input} ${styles.pwd}`}
-              type="text"
+              type="password"
               onChange={handlePassword}
             />
-            <span className={styles.err}>{message}</span>
+            <span className={styles.err}>
+              {message === null
+                ? ""
+                : message === false
+                ? "이메일 또는 비밀번호가 일치하지 않습니다."
+                : ""}
+            </span>
           </div>
           <button
             className={`${styles.login_btn} ${allInput}`}

@@ -56,7 +56,12 @@
 .input_wrap input {
   padding: 8px 0px;
   border: none;
+  outline: none;
   border-bottom: 1px solid #dbdbdb;
+}
+
+.input_wrap input:focus {
+  border-bottom: 1px solid #f26e22;
 }
 
 .err {

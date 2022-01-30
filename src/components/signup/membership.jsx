@@ -47,7 +47,8 @@ const Membership = ({ setEmail, setPassword }) => {
     else setPasswordValid(false);
   };
 
-  const onSubmit = () => {
+  const onSubmit = (event) => {
+    event.preventDefault();
     setEmail(emailRef.current.value);
     setPassword(passwordRef.current.value);
   };

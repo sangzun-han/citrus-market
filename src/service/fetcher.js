@@ -14,7 +14,9 @@ const postConfig = (url, data) => {
 
 export const login = async (userData) => {
   const res = await axios(postConfig("/user/login", userData));
-  return res.data;
+  if (res.data.message === "이메일 또는 비밀번호가 일치하지 않습니다.")
+    return false;
+  else return true;
 };
 
 export const checkEmail = async (userData) => {
@@ -25,8 +27,9 @@ export const checkEmail = async (userData) => {
 };
 
 export const join = async (userData) => {
-  const res = await axios(postConfig("/join", userData));
-  return res;
+  const res = await axios(postConfig("/user", userData));
+  if (res.data.message === "회원가입 성공") return true;
+  else return false;
 };
 
 export const checkAccountName = async (userData) => {
