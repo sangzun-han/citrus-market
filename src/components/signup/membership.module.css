@@ -66,11 +66,12 @@
   font-size: 14px;
   line-height: 18px;
   color: #ffffff;
-  cursor: pointer;
+  cursor: initial;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .on {
   background-color: #f26e22;
+  cursor: pointer;
 }

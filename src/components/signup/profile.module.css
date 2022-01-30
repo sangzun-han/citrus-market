@@ -16,13 +16,6 @@
   text-align: center;
 }
 
-.user_input {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .user_input .profile_img {
   position: relative;
   width: 110px;
@@ -32,6 +25,8 @@
 
 .user_input .profile_img .basic_img {
   width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 .user_input .profile_img .upload_file {
@@ -40,6 +35,13 @@
   right: 0;
   width: 36px;
   height: 36px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .input_wrap {
@@ -93,8 +95,10 @@ label {
   border-radius: 44px;
   border: none;
   outline: none;
+  cursor: initial;
 }
 
 .on {
   background-color: #f26e22;
+  cursor: pointer;
 }

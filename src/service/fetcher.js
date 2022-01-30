@@ -34,3 +34,10 @@ export const checkAccountName = async (userData) => {
   if (res.data.message === "사용 가능한 계정ID 입니다.") return true;
   else return false;
 };
+
+export const profileImageUpload = async (files) => {
+  const data = new FormData();
+  data.append("image", files[0], files[0].name);
+  const res = await axios(postConfig("/image/uploadfile"), data);
+  return res;
+};

@@ -15,21 +15,17 @@ const Signup = () => {
     if (email && password && userName && accountName && intro) {
       const userData = {
         user: {
-          email,
+          email: email,
           password: password,
           username: userName,
           accountname: accountName,
-          intro,
+          intro: intro,
           image: image,
         },
       };
 
       join(userData).then((res) => {
-        if (res.data.message === "회원가입 성공") {
-          alert("");
-        } else {
-          alert(res.data.message);
-        }
+        console.log(res.data.message);
       });
     }
   }, [email, password, userName, accountName, intro, image]);
