@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Splash from "./components/splash/splash";
 import Login from "./components/login/login";
 import LoginEmail from "./components/loginEmail/loginEmail";
-import Join from "./components/signup/join";
+import Signup from "./components/signup/signup";
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -26,7 +26,7 @@ function App() {
         <LoginEmail />
       </Route>
       <Route path="/signup">
-        <Join />
+        <Signup />
       </Route>
     </>
   );

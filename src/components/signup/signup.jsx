@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { join } from "../../service/fetcher";
 import Membership from "./membership";
+import Profile from "./profile";
 
-const Join = () => {
+const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
@@ -34,10 +35,17 @@ const Join = () => {
   }, [email, password, userName, accountName, intro, image]);
 
   if (email && password) {
-    return <h1>222</h1>;
+    return (
+      <Profile
+        setUserName={setUserName}
+        setAccountName={setAccountName}
+        setIntro={setIntro}
+        setImage={setImage}
+      />
+    );
   } else {
     return <Membership setEmail={setEmail} setPassword={setPassword} />;
   }
 };
 
-export default Join;
+export default Signup;
