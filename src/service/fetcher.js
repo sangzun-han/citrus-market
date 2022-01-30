@@ -28,3 +28,9 @@ export const join = async (userData) => {
   const res = await axios(postConfig("/join", userData));
   return res;
 };
+
+export const checkAccountName = async (userData) => {
+  const res = await axios(postConfig("/user/accountnamevalid", userData));
+  if (res.data.message === "사용 가능한 계정ID 입니다.") return true;
+  else return false;
+};

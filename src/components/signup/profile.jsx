@@ -1,12 +1,32 @@
 import React, { useRef } from "react";
+import { checkAccountName } from "../../service/fetcher";
 import styles from "./profile.module.css";
 
-const Profile = ({ serUserName, serAccountName, setIntro, setImage }) => {
+const Profile = ({ setUserName, setAccountName, setIntro, setImage }) => {
   const imageRef = useRef();
   const userNameRef = useRef();
   const accountNameRef = useRef();
   const introRef = useRef();
 
+  const checkUserName = () =>
+    userNameRef.current.value.length <= 10 &&
+    userNameRef.current.value.length >= 2
+      ? true
+      : false;
+
+  // 계정 아이디 중복 검사
+  const checkAccount = () => {
+    const userData = {
+      user: {
+        accountname: accountNameRef.current.value,
+      },
+    };
+
+    checkAccountName(userData).then((res) => {
+      console.log(res);
+      setAccountName(res);
+    });
+  };
   return (
     <article>
       <section className={styles.info}>
@@ -31,7 +51,7 @@ const Profile = ({ serUserName, serAccountName, setIntro, setImage }) => {
               ref={imageRef}
               type="file"
               id="uploadImage"
-              accept="iamge/*"
+              accept="image/*"
               hidden
             />
           </label>
@@ -61,6 +81,7 @@ const Profile = ({ serUserName, serAccountName, setIntro, setImage }) => {
             rer={introRef}
             type="text"
             placeholder="자신과 판매할 상품에 대해 소개해 주세요!"
+            onBlur={checkAccount}
           />
         </div>
         <button className={styles.start_btn}>감귤마켓 시작하기</button>
