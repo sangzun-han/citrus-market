@@ -1,0 +1,18 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  border-top: 0.5px solid #dbdbdb;
+}
+
+.icon_member {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.icon_member img {
+  width: 24px;
+  height: 24px;
+}
