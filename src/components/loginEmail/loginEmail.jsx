@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { login } from "../../service/fetcher";
 import styles from "./loginEmail.module.css";
 
 const LoginEmail = () => {
+  const history = useHistory();
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [valid, setValid] = useState(false);
@@ -31,9 +32,9 @@ const LoginEmail = () => {
       },
     };
     login(userData).then((res) => {
-      console.log(res);
       if (res) {
         setMessage(res);
+        history.push("/home");
       } else {
         setMessage(false);
       }
