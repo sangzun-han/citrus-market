@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding: 1rem;
+  padding: 10px 6px 5px 6px;
   border-top: 0.5px solid #dbdbdb;
 }
 
@@ -15,4 +15,21 @@
 .icon_member img {
   width: 24px;
   height: 24px;
+  margin-bottom: 7px;
+}
+
+.icon_member span {
+  font-size: 10px;
+  line-height: 14px;
+  font-weight: 400;
+  color: #767676;
+}
+.btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
