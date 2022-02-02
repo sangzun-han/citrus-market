@@ -1,10 +1,12 @@
 import React from "react";
-import syltes from "./search.module.css";
+import Nav from "../nav/nav";
+import SearchHeader from "./searchHeader";
 const Search = () => {
   return (
-    <div>
-      <h1>search</h1>
-    </div>
+    <>
+      <SearchHeader />
+      <Nav />
+    </>
   );
 };
 

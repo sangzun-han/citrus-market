@@ -8,6 +8,7 @@ import Signup from "./components/signup/signup";
 import Home from "./components/home/home";
 import ChatList from "./components/chatList/chatList";
 import Profile from "./components/profile/profile";
+import Search from "./components/serach/search";
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -39,6 +40,9 @@ function App() {
       </Route>
       <Route path="/profile">
         <Profile />
+      </Route>
+      <Route path="/search">
+        <Search />
       </Route>
     </>
   );

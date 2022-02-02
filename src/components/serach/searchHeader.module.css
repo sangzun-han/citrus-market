@@ -1,0 +1,16 @@
+.search_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 0.5px solid #dbdbdb;
+}
+
+.input_search {
+  width: 90%;
+  padding: 7px 16px;
+  border-radius: 32px;
+  background-color: #f2f2f2;
+  border: none;
+  outline: none;
+}

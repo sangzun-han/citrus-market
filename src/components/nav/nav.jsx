@@ -6,7 +6,7 @@ import styles from "./nav.module.css";
 const Nav = () => {
   const path = useLocation().pathname;
   const history = useHistory();
-
+  console.log(path);
   return (
     <footer className={styles.footer}>
       <div className={styles.icon_member}>
