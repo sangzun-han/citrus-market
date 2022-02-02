@@ -7,7 +7,6 @@ const Nav = () => {
   const path = useLocation().pathname;
   const history = useHistory();
 
-  console.log(path);
   return (
     <footer className={styles.footer}>
       <div className={styles.icon_member}>
@@ -18,24 +17,29 @@ const Nav = () => {
           />
           <span>홈</span>
         </button>
-        <button className={styles.btn} onClick={() => history.push("/chat")}>
+        <button
+          className={styles.btn}
+          onClick={() => history.push("/chatList")}
+        >
           <img
             src={`/images/home/icon-message-circle${
-              path === "/chat" ? "-fill" : ""
+              path === "/chatList" ? "-fill" : ""
             }.png`}
             alt="icon-chat"
           />
           <span>채팅</span>
         </button>
         <button className={styles.btn} onClick={() => history.push("/edit")}>
-          <img
-            src={`/images/home/icon-edit${path === "/edit" ? "-fill" : ""}.png`}
-            alt="icon-edit"
-          />
+          <img src="images/home/icon-edit.png" alt="icon-edit" />
           <span>게시물 작성</span>
         </button>
-        <button className={styles.btn} onClick={() => history.push("/user")}>
-          <img src={`/images/home/icon-user.png`} alt="icon-user" />
+        <button className={styles.btn} onClick={() => history.push("/profile")}>
+          <img
+            src={`/images/home/icon-user${
+              path === "/profile" ? "-fill" : ""
+            }.png`}
+            alt="icon-user"
+          />
           <span>프로필</span>
         </button>
       </div>

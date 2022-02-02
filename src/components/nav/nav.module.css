@@ -33,3 +33,7 @@
   border: none;
   outline: none;
 }
+
+.fill {
+  color: #f26e22 !important;
+}
