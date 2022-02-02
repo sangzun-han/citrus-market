@@ -5,26 +5,6 @@
   justify-content: space-between;
   height: 100vh;
 }
-.header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 0.5px solid #dbdbdb;
-}
-
-.feed {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 22px;
-  color: #000000;
-}
-
-.search_icon {
-  width: 24px;
-  height: 24px;
-}
 
 .main {
   position: absolute;

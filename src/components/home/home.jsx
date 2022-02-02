@@ -1,18 +1,12 @@
 import React from "react";
+import Header from "../header/header";
 import Nav from "../nav/nav";
 import styles from "./home.module.css";
 
 const Home = () => {
   return (
     <article className={styles.container}>
-      <header className={styles.header}>
-        <h1 className={styles.feed}>감귤마켓 피드</h1>
-        <img
-          className={styles.search_icon}
-          src="/images/home/search-icon.png"
-          alt="search"
-        />
-      </header>
+      <Header />
       <section className={styles.main}>
         <img
           className={styles.symbol_logo}
