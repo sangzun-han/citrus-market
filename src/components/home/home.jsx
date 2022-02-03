@@ -3,7 +3,7 @@ import Header from "../header/header";
 import Nav from "../nav/nav";
 import styles from "./home.module.css";
 
-const Home = () => {
+const Home = ({ login }) => {
   return (
     <article className={styles.container}>
       <Header />

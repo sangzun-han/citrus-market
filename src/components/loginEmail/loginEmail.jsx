@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { setCookie } from "../../service/cookie";
 import { login } from "../../service/fetcher";
 import styles from "./loginEmail.module.css";
 
-const LoginEmail = () => {
+const LoginEmail = ({ isLogin, setIsLogin }) => {
   const history = useHistory();
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
@@ -32,14 +33,23 @@ const LoginEmail = () => {
       },
     };
     login(userData).then((res) => {
-      if (res) {
-        setMessage(res);
+      console.log(res.data.user);
+      if (res.data.user) {
+        setMessage(true);
+        setCookie("token", res.data.user.token);
+        setIsLogin(true);
         history.push("/home");
       } else {
         setMessage(false);
       }
     });
   };
+
+  useEffect(() => {
+    if (isLogin) {
+      history.push("/home");
+    }
+  }, [isLogin, history]);
 
   useEffect(() => {
     if (email && password) {

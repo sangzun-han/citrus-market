@@ -12,6 +12,7 @@ import Search from "./components/serach/search";
 
 function App() {
   const [splash, setSplash] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -27,7 +28,7 @@ function App() {
         <Login />
       </Route>
       <Route path="/email-login">
-        <LoginEmail />
+        <LoginEmail isLogin={isLogin} setIsLogin={setIsLogin} />
       </Route>
       <Route path="/signup">
         <Signup />
