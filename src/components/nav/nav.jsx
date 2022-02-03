@@ -6,12 +6,15 @@ import styles from "./nav.module.css";
 const Nav = () => {
   const path = useLocation().pathname;
   const history = useHistory();
+  console.log(path);
   return (
     <footer className={styles.footer}>
       <div className={styles.icon_member}>
         <button className={styles.btn} onClick={() => history.push("/home")}>
           <img
-            src={`/images/home/icon-home${path === "/home" ? "-fill" : ""}.png`}
+            src={`/images/home/icon-home${
+              path === "/home" ? "-fill" : path === "/search" ? "-fill" : ""
+            }.png`}
             alt="icon-home"
           />
           <span>홈</span>
