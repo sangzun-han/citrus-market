@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./searchBody.module.css";
 
 const SearchBody = ({ userData, searchRef }) => {
@@ -11,6 +12,7 @@ const SearchBody = ({ userData, searchRef }) => {
     const first = username.slice(0, start);
     const mid = username.slice(start, end);
     const last = username.slice(end);
+
     return (
       <div>
         <span className={styles.userName}>{first}</span>
@@ -21,15 +23,17 @@ const SearchBody = ({ userData, searchRef }) => {
   };
 
   return (
-    <section className={styles.wrap}>
-      <div className={styles.profile_img}>
-        <img src={image} alt="profile" />
-      </div>
-      <div className={styles.info}>
-        {highlight(username)}
-        <p className={styles.accountName}>@{accountname}</p>
-      </div>
-    </section>
+    <Link to="/profile">
+      <section className={styles.wrap}>
+        <div className={styles.profile_img}>
+          <img src={image} alt="profile" />
+        </div>
+        <div className={styles.info}>
+          {highlight(username)}
+          <p className={styles.accountName}>@{accountname}</p>
+        </div>
+      </section>
+    </Link>
   );
 };
 
