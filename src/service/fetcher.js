@@ -12,6 +12,17 @@ const postConfig = (url, data) => {
   };
 };
 
+const getConfigWithToken = (url, token) => {
+  return {
+    method: "GET",
+    url: API_END_POINT + url,
+    headers: {
+      Authorization: "Bearer " + token,
+      "Content-type": "application/json",
+    },
+  };
+};
+
 export const login = async (userData) => {
   const res = await axios(postConfig("/user/login", userData));
   return res;
@@ -40,5 +51,12 @@ export const profileImageUpload = async (files) => {
   const data = new FormData();
   data.append("image", files[0], files[0].name);
   const res = await axios(postConfig("/image/uploadfile"), data);
+  return res;
+};
+
+export const userSearch = async (keyword, token) => {
+  const res = await axios(
+    getConfigWithToken(`/user/searchuser/?keyword=${keyword}`, token)
+  );
   return res;
 };

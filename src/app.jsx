@@ -43,7 +43,7 @@ function App() {
         <Profile isLogin={isLogin} />
       </Route>
       <Route path="/search">
-        <Search />
+        <Search isLogin={isLogin} />
       </Route>
     </>
   );

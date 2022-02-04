@@ -1,0 +1,37 @@
+.wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+
+.profile_img {
+  width: 50px;
+  height: 50px;
+  margin-right: 12px;
+}
+
+.profile_img img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 0.5px solid #dbdbdb;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  margin-bottom: 6px;
+}
+
+.accountName {
+  font-size: 12px;
+  line-height: 15px;
+  color: #767676;
+}
