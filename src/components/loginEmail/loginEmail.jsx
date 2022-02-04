@@ -34,7 +34,7 @@ const LoginEmail = ({ isLogin, setIsLogin }) => {
     };
     login(userData).then((res) => {
       if (res.data.user) {
-        setMessage(true);
+        setCookie("accountname", res.data.user.accountname);
         setCookie("token", res.data.user.token);
         setIsLogin(true);
         history.push("/home");

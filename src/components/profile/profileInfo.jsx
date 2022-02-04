@@ -1,30 +1,37 @@
 import React from "react";
 import styles from "./profileInfo.module.css";
 
-const ProfileInfo = () => {
+const ProfileInfo = ({ info }) => {
+  const {
+    username,
+    accountname,
+    followerCount,
+    followingCount,
+    image,
+    intro,
+    isfollow,
+  } = info;
   return (
     <section className={styles.container}>
       <div className={styles.profile_info}>
         <div className={styles.followers}>
-          <p className={styles.followers_count}>2950</p>
+          <p className={styles.followers_count}>{followerCount}</p>
           <p className={styles.follow}>followers</p>
         </div>
         <div className={styles.profile_img}>
-          <img src="/assets/Ellipse-1.png" alt="sample" />
+          <img src={image} alt="profile" />
         </div>
         <div className={styles.followings}>
-          <p className={styles.followings_count}>128</p>
+          <p className={styles.followings_count}>{followingCount}</p>
           <p className={styles.follow}>followings</p>
         </div>
       </div>
       <div className={styles.user_info}>
-        <p className={styles.name}>애월읍 위니브 감귤농장</p>
-        <p className={styles.accountName}>@ weniv_Mandarin</p>
+        <p className={styles.name}>{username}</p>
+        <p className={styles.accountName}>@{accountname}</p>
       </div>
       <div className={styles.desc}>
-        <p className={styles.detail_desc}>
-          애월읍 감귤 전국 배송,귤따기 체험, 감귤 농장
-        </p>
+        <p className={styles.detail_desc}>{intro}</p>
       </div>
       <div className={styles.more}>
         <div className={styles.profile_area}>

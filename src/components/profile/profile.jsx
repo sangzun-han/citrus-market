@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { getCookie } from "../../service/cookie";
+import { getInfo } from "../../service/fetcher";
 import Nav from "../nav/nav";
 import ProfileHeader from "./profileHeader";
 import ProfileInfo from "./profileInfo";
 
 const Profile = ({ isLogin }) => {
   const history = useHistory();
+  const accountName = getCookie("accountname");
+  const token = getCookie("token");
+  const [info, setInfo] = useState();
 
   useEffect(() => {
     if (!isLogin) {
@@ -13,10 +18,16 @@ const Profile = ({ isLogin }) => {
     }
   }, [isLogin, history]);
 
+  useEffect(() => {
+    getInfo(accountName, token).then((res) => {
+      setInfo(res.data.profile);
+    });
+  }, [accountName, token]);
+
   return (
     <>
       <ProfileHeader />
-      <ProfileInfo />
+      <ProfileInfo info={info} />
       <Nav />
     </>
   );

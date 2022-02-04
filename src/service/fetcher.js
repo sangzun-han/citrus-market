@@ -60,3 +60,8 @@ export const userSearch = async (keyword, token) => {
   );
   return res;
 };
+
+export const getInfo = async (accountName, token) => {
+  const res = await axios(getConfigWithToken(`/profile/${accountName}`, token));
+  return res;
+};
