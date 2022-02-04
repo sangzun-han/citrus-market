@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import Header from "../header/header";
 import Nav from "../nav/nav";
+import ProfileHeader from "./profileHeader";
+import ProfileInfo from "./profileInfo";
 
 const Profile = ({ isLogin }) => {
   const history = useHistory();
@@ -13,11 +14,11 @@ const Profile = ({ isLogin }) => {
   }, [isLogin, history]);
 
   return (
-    <div>
-      <Header />
-      <h1>profile</h1>
+    <>
+      <ProfileHeader />
+      <ProfileInfo />
       <Nav />
-    </div>
+    </>
   );
 };
 
