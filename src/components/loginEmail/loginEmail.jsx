@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { setCookie } from "../../service/cookie";
+import { getCookie, setCookie } from "../../service/cookie";
 import { login } from "../../service/fetcher";
 import styles from "./loginEmail.module.css";
 
@@ -33,7 +33,6 @@ const LoginEmail = ({ isLogin, setIsLogin }) => {
       },
     };
     login(userData).then((res) => {
-      console.log(res.data.user);
       if (res.data.user) {
         setMessage(true);
         setCookie("token", res.data.user.token);
@@ -46,10 +45,11 @@ const LoginEmail = ({ isLogin, setIsLogin }) => {
   };
 
   useEffect(() => {
-    if (isLogin) {
+    if (getCookie("token")) {
+      setIsLogin(true);
       history.push("/home");
     }
-  }, [isLogin, history]);
+  }, [isLogin, setIsLogin, history]);
 
   useEffect(() => {
     if (email && password) {

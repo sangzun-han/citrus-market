@@ -8,7 +8,6 @@ const Login = () => {
       <section className={styles.logo}>
         <img src="images/login/symbol-logo-W.png" alt="symbol-logo" />
       </section>
-
       <section className={styles.login_wrap}>
         <div className={styles.login}>
           <button className={`${styles.kakao_login} ${styles.login_button}`}>
@@ -24,7 +23,6 @@ const Login = () => {
             페이스북 계정으로 로그인
           </button>
         </div>
-
         <div className={styles.account}>
           <Link to="/email-login">
             <span className={styles.email}>이메일로 로그인</span>

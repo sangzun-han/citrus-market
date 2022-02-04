@@ -34,13 +34,13 @@ function App() {
         <Signup />
       </Route>
       <Route path="/home">
-        <Home />
+        <Home isLogin={isLogin} />
       </Route>
       <Route path="/chatList">
-        <ChatList />
+        <ChatList isLogin={isLogin} />
       </Route>
       <Route path="/profile">
-        <Profile />
+        <Profile isLogin={isLogin} />
       </Route>
       <Route path="/search">
         <Search />

@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import Header from "../header/header";
 import Nav from "../nav/nav";
 import styles from "./home.module.css";
 
-const Home = ({ login }) => {
+const Home = ({ isLogin }) => {
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!isLogin) {
+      history.push("/email-login");
+    }
+  }, [isLogin, history]);
+
   return (
     <article className={styles.container}>
       <Header />
