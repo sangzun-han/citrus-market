@@ -11,6 +11,7 @@ const Search = ({ isLogin }) => {
   const history = useHistory();
   const searchRef = useRef("");
   const [userData, setUserData] = useState([]);
+
   const onSearch = () => {
     userSearch(searchRef.current.value, getCookie("token")).then((res) => {
       setUserData(res.data);
@@ -26,7 +27,7 @@ const Search = ({ isLogin }) => {
     <>
       <SearchHeader searchRef={searchRef} onSearch={onSearch} />
       <div className={styles.wrap}>
-        <SearchResult userData={userData} />
+        <SearchResult userData={userData} searchRef={searchRef} />
       </div>
       <Nav />
     </>

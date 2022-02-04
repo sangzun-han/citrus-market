@@ -30,6 +30,10 @@
   margin-bottom: 6px;
 }
 
+.highlight {
+  color: #f26e22;
+}
+
 .accountName {
   font-size: 12px;
   line-height: 15px;
