@@ -23,7 +23,7 @@ const SearchBody = ({ userData, searchRef }) => {
   };
 
   return (
-    <Link to="/profile">
+    <Link to={`/user-profile/${accountname}`}>
       <section className={styles.wrap}>
         <div className={styles.profile_img}>
           <img src={image} alt="profile" />

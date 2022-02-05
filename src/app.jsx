@@ -9,6 +9,7 @@ import Home from "./components/home/home";
 import ChatList from "./components/chatList/chatList";
 import Profile from "./components/profile/profile";
 import Search from "./components/serach/search";
+import UserProfile from "./components/userProfile/userProfile";
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -44,6 +45,9 @@ function App() {
       </Route>
       <Route path="/search">
         <Search isLogin={isLogin} />
+      </Route>
+      <Route path="/user-profile/:accountname">
+        <UserProfile isLogin={isLogin} />
       </Route>
     </>
   );

@@ -10,7 +10,7 @@ const Profile = ({ isLogin }) => {
   const history = useHistory();
   const accountName = getCookie("accountname");
   const token = getCookie("token");
-  const [info, setInfo] = useState("");
+  const [info, setInfo] = useState({});
 
   useEffect(() => {
     if (!isLogin) {
