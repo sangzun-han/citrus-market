@@ -27,7 +27,7 @@ const UserProfile = ({ isLogin }) => {
   return (
     <>
       <ProfileHeader />
-      <UserProfileInfo info={info} />
+      <UserProfileInfo info={info} token={token} accountName={accountName} />
       <Nav />
     </>
   );

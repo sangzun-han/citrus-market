@@ -77,9 +77,16 @@ export const getInfo = async (accountName, token) => {
   return res;
 };
 
-export const follow = async (accountName, token) => {
+export const userFollow = async (accountName, token) => {
   const res = await axios(
     postConfigWithToken(`/profile/${accountName}/follow`, token)
+  );
+  return res;
+};
+
+export const userUnFollow = async (accountName, token) => {
+  const res = await axios(
+    postConfigWithToken(`/profile/${accountName}/unfollow`, token)
   );
   return res;
 };
