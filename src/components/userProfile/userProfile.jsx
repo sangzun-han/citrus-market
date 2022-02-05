@@ -10,7 +10,7 @@ const UserProfile = ({ isLogin }) => {
   const history = useHistory();
   const { accountName } = useParams();
   const token = getCookie("token");
-  const [info, setInfo] = useState({});
+  const [info, setInfo] = useState("");
 
   useEffect(() => {
     if (!isLogin) {
@@ -19,11 +19,14 @@ const UserProfile = ({ isLogin }) => {
   }, [isLogin, history]);
 
   useEffect(() => {
+    let isGetInfo = true;
     getInfo(accountName, token).then((res) => {
-      setInfo(res.data.profile);
+      if (isGetInfo) setInfo(res.data.profile);
     });
+    return () => (isGetInfo = false);
   }, [accountName, token]);
 
+  if (!info) return <div>loading</div>;
   return (
     <>
       <ProfileHeader />

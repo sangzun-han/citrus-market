@@ -8,9 +8,13 @@ const Home = ({ isLogin }) => {
   const history = useHistory();
 
   useEffect(() => {
-    if (!isLogin) {
-      history.push("/email-login");
+    let getLogin = true;
+    if (getLogin) {
+      if (!isLogin) {
+        history.push("/email-login");
+      }
     }
+    return () => (getLogin = false);
   }, [isLogin, history]);
 
   return (

@@ -4,33 +4,32 @@ import styles from "./userProfileInfo.module.css";
 
 const UserProfileInfo = ({ info, token, accountName }) => {
   const {
-    username,
-    accountname,
     followerCount,
+    accountname,
     followingCount,
     image,
     intro,
     isfollow,
+    username,
   } = info;
+
   const [follow, setFollow] = useState(isfollow);
   const [follower, setFollower] = useState(followerCount);
-  console.log(follower);
 
   const onFollow = () => {
-    userFollow(accountName, token).then((res) => {
-      console.log(res);
+    userFollow(accountName, token).then(() => {
       setFollow(true);
-      setFollower(follower + 1);
+      setFollower((follower) => follower + 1);
     });
   };
 
   const unFollow = () => {
-    userUnFollow(accountName, token).then((res) => {
-      console.log(res);
+    userUnFollow(accountName, token).then(() => {
       setFollow(false);
-      setFollower(follower - 1);
+      setFollower((follower) => follower - 1);
     });
   };
+
   return (
     <section className={styles.container}>
       <div className={styles.profile_info}>
