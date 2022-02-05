@@ -46,7 +46,7 @@ function App() {
       <Route path="/search">
         <Search isLogin={isLogin} />
       </Route>
-      <Route path="/user-profile/:accountname">
+      <Route path="/user-profile/:accountName">
         <UserProfile isLogin={isLogin} />
       </Route>
     </>
