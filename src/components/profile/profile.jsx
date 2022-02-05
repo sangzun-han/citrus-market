@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { getCookie } from "../../service/cookie";
 import { getInfo } from "../../service/fetcher";
 import Nav from "../nav/nav";
+import Product from "./product";
 import ProfileHeader from "./profileHeader";
 import ProfileInfo from "./profileInfo";
 
@@ -28,6 +29,7 @@ const Profile = ({ isLogin }) => {
     <>
       <ProfileHeader />
       <ProfileInfo info={info} />
+      <Product />
       <Nav />
     </>
   );

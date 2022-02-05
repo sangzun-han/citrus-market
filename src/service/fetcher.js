@@ -12,6 +12,17 @@ const postConfig = (url, data) => {
   };
 };
 
+const postConfigWithToken = (url, token) => {
+  return {
+    method: "POST",
+    url: API_END_POINT + url,
+    headers: {
+      Authorization: "Bearer " + token,
+      "Content-type": "application/json",
+    },
+  };
+};
+
 const getConfigWithToken = (url, token) => {
   return {
     method: "GET",
@@ -63,5 +74,12 @@ export const userSearch = async (keyword, token) => {
 
 export const getInfo = async (accountName, token) => {
   const res = await axios(getConfigWithToken(`/profile/${accountName}`, token));
+  return res;
+};
+
+export const follow = async (accountName, token) => {
+  const res = await axios(
+    postConfigWithToken(`/profile/${accountName}/follow`, token)
+  );
   return res;
 };
