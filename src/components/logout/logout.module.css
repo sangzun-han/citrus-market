@@ -1,0 +1,58 @@
+.logout_section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 252px;
+  height: 110px;
+  background-color: #ffffff;
+  opacity: 0.9;
+  border-radius: 5px;
+  z-index: 999;
+}
+
+.logout_message {
+  padding: 22px 55px;
+  text-align: center;
+}
+
+.logout_message h1 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.btn_member {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn_cancle {
+  width: 126px;
+  height: 46px;
+  border: none;
+  border-top: 0.5px solid #dbdbdb;
+  border-bottom-left-radius: 5px;
+}
+
+.btn_cancle {
+  font-size: 14px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.btn_logout {
+  width: 126px;
+  height: 46px;
+  border: none;
+  border-top: 0.5px solid #dbdbdb;
+  border-left: 0.5px solid #dbdbdb;
+  border-bottom-right-radius: 5px;
+}
+
+.btn_logout span {
+  font-size: 14px;
+  line-height: 18px;
+  color: #f26e22;
+}

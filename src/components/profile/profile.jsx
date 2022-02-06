@@ -10,6 +10,7 @@ import Product from "./product";
 import ProfileHeader from "./profileHeader";
 import ProfileInfo from "./profileInfo";
 import SettingModal from "../settingModal/settingModal";
+import Logout from "../logout/logout";
 
 const Profile = ({ isLogin }) => {
   const history = useHistory();
@@ -17,6 +18,7 @@ const Profile = ({ isLogin }) => {
   const token = getCookie("token");
   const [info, setInfo] = useState("");
   const [modal, setModal] = useState(false);
+  const [logout, setLogout] = useState(false);
   const outSection = useRef();
 
   useEffect(() => {
@@ -47,7 +49,8 @@ const Profile = ({ isLogin }) => {
         <Product />
         <PostArea />
         <Nav />
-        {modal ? <SettingModal /> : ""}
+        {modal ? <SettingModal setLogout={setLogout} /> : ""}
+        {logout ? <Logout setLogout={setLogout} /> : ""}
       </div>
     </>
   );
