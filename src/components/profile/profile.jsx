@@ -18,7 +18,7 @@ const Profile = ({ isLogin }) => {
   const [info, setInfo] = useState({});
   const [modal, setModal] = useState(false);
   const outSection = useRef();
-  console.log(outSection);
+
   useEffect(() => {
     if (!isLogin) {
       history.push("/email-login");
