@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import styles from "./profile.module.css";
+
 import { useHistory } from "react-router-dom";
 import { getCookie } from "../../service/cookie";
 import { getInfo } from "../../service/fetcher";
@@ -27,13 +29,13 @@ const Profile = ({ isLogin }) => {
   }, [accountName, token]);
 
   return (
-    <>
+    <div className={styles.scroll}>
       <ProfileHeader />
       <ProfileInfo info={info} />
       <Product />
       <PostArea />
       <Nav />
-    </>
+    </div>
   );
 };
 
