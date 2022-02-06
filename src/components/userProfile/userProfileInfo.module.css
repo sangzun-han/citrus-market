@@ -102,8 +102,21 @@
   font-size: 14px;
   line-height: 18px;
   margin: 0 10px;
+  cursor: pointer;
 }
 
+.btn_unfollow {
+  width: 120px;
+  height: 34px;
+  border-radius: 30px;
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  color: #767676;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0 10px;
+  cursor: pointer;
+}
 .profile_area img,
 .icon_share img {
   width: 15px;

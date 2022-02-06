@@ -57,7 +57,7 @@ const UserProfileInfo = ({ info, token, accountName }) => {
           <img src="/images/profile/icon-message-circle.png" alt="message" />
         </div>
         {follow ? (
-          <button className={styles.btn_follow} onClick={unFollow}>
+          <button className={styles.btn_unfollow} onClick={unFollow}>
             언팔로우
           </button>
         ) : (
