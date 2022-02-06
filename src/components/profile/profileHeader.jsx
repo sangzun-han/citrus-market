@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import styles from "./profileHeader.module.css";
 
-const ProfileHeader = () => {
+const ProfileHeader = ({ modal, setModal }) => {
   const history = useHistory();
 
   return (
@@ -11,7 +11,12 @@ const ProfileHeader = () => {
         <img src="/images/profile/icon-arrow-left.png" alt="icon-arrow-left" />
       </div>
 
-      <div className={styles.setting}>
+      <div
+        className={styles.setting}
+        onClick={() => {
+          setModal(!modal);
+        }}
+      >
         <img src="/images/profile/s-icon-more-vertical.png" alt="more" />
       </div>
     </header>

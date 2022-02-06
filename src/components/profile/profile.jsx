@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./profile.module.css";
 
 import { useHistory } from "react-router-dom";
@@ -9,13 +9,16 @@ import PostArea from "./postArea";
 import Product from "./product";
 import ProfileHeader from "./profileHeader";
 import ProfileInfo from "./profileInfo";
+import SettingModal from "../settingModal/settingModal";
 
 const Profile = ({ isLogin }) => {
   const history = useHistory();
   const accountName = getCookie("accountname");
   const token = getCookie("token");
   const [info, setInfo] = useState({});
-
+  const [modal, setModal] = useState(false);
+  const outSection = useRef();
+  console.log(outSection);
   useEffect(() => {
     if (!isLogin) {
       history.push("/email-login");
@@ -29,13 +32,22 @@ const Profile = ({ isLogin }) => {
   }, [accountName, token]);
 
   return (
-    <div className={styles.scroll}>
-      <ProfileHeader />
-      <ProfileInfo info={info} />
-      <Product />
-      <PostArea />
-      <Nav />
-    </div>
+    <>
+      <ProfileHeader modal={modal} setModal={setModal} />
+      <div
+        ref={outSection}
+        className={styles.scroll}
+        onClick={(event) => {
+          setModal(false);
+        }}
+      >
+        <ProfileInfo info={info} />
+        <Product />
+        <PostArea modal={modal} />
+        <Nav />
+        {modal ? <SettingModal /> : ""}
+      </div>
+    </>
   );
 };
 
