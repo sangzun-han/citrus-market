@@ -15,7 +15,7 @@ const Profile = ({ isLogin }) => {
   const history = useHistory();
   const accountName = getCookie("accountname");
   const token = getCookie("token");
-  const [info, setInfo] = useState({});
+  const [info, setInfo] = useState("");
   const [modal, setModal] = useState(false);
   const outSection = useRef();
 
@@ -26,9 +26,11 @@ const Profile = ({ isLogin }) => {
   }, [isLogin, history]);
 
   useEffect(() => {
+    let isGetInfo = true;
     getInfo(accountName, token).then((res) => {
-      setInfo(res.data.profile);
+      if (isGetInfo) setInfo(res.data.profile);
     });
+    return () => (isGetInfo = false);
   }, [accountName, token]);
 
   return (
