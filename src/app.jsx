@@ -41,7 +41,7 @@ function App() {
         <ChatList isLogin={isLogin} />
       </Route>
       <Route path="/profile">
-        <Profile isLogin={isLogin} />
+        <Profile isLogin={isLogin} setIsLogin={setIsLogin} />
       </Route>
       <Route path="/search">
         <Search isLogin={isLogin} />

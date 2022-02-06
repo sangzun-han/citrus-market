@@ -12,13 +12,13 @@ import ProfileInfo from "./profileInfo";
 import SettingModal from "../settingModal/settingModal";
 import Logout from "../logout/logout";
 
-const Profile = ({ isLogin }) => {
+const Profile = ({ isLogin, setIsLogin }) => {
   const history = useHistory();
   const accountName = getCookie("accountname");
   const token = getCookie("token");
   const [info, setInfo] = useState("");
   const [modal, setModal] = useState(false);
-  const [logout, setLogout] = useState(false);
+  const [logoutModal, setLogoutModal] = useState(false);
   const outSection = useRef();
 
   useEffect(() => {
@@ -49,8 +49,12 @@ const Profile = ({ isLogin }) => {
         <Product />
         <PostArea />
         <Nav />
-        {modal ? <SettingModal setLogout={setLogout} /> : ""}
-        {logout ? <Logout setLogout={setLogout} /> : ""}
+        {modal ? <SettingModal setLogoutModal={setLogoutModal} /> : ""}
+        {logoutModal ? (
+          <Logout setLogoutModal={setLogoutModal} setIsLogin={setIsLogin} />
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

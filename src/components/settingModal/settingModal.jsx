@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./settingModal.module.css";
 
-const SettingModal = ({ setLogout }) => {
+const SettingModal = ({ setLogoutModal }) => {
   return (
     <main className={styles.modal}>
       <div className={styles.line}>
@@ -10,7 +10,7 @@ const SettingModal = ({ setLogout }) => {
       <button className={styles.btn_modal}>
         <p className={styles.privacy}>설정 및 개인정보</p>
       </button>
-      <button className={styles.btn_modal} onClick={() => setLogout(true)}>
+      <button className={styles.btn_modal} onClick={() => setLogoutModal(true)}>
         <p className={styles.logout}>로그아웃</p>
       </button>
     </main>
