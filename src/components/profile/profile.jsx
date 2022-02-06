@@ -37,13 +37,13 @@ const Profile = ({ isLogin }) => {
       <div
         ref={outSection}
         className={styles.scroll}
-        onClick={(event) => {
+        onClick={() => {
           setModal(false);
         }}
       >
         <ProfileInfo info={info} />
         <Product />
-        <PostArea modal={modal} />
+        <PostArea />
         <Nav />
         {modal ? <SettingModal /> : ""}
       </div>
