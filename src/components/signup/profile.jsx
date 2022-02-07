@@ -143,6 +143,13 @@ const Profile = ({ setUserName, setAccountName, setIntro, setImage }) => {
               placeholder="2~10자 이내여야 합니다."
               onBlur={checkUserName}
             />
+            <span className={styles.err}>
+              {userNameValid == null
+                ? ""
+                : !userNameValid
+                ? "*사용자 이름은 2~10자 이내여야 합니다."
+                : ""}
+            </span>
           </div>
 
           <div className={styles.input_wrap}>

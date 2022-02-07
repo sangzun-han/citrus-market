@@ -137,15 +137,17 @@ const ProfileUpdateInfo = ({
           defaultValue={accountname}
           onBlur={checkAccount}
         />
-        {accountValid === null
-          ? ""
-          : accountValid === false
-          ? "영문, 숫자, 밑줄 및 마침표만 사용할 수 있습니다."
-          : accountDuplicate === null
-          ? ""
-          : accountDuplicate === false
-          ? "이미 존재하는 아이디입니다."
-          : ""}
+        <span className={styles.err}>
+          {accountValid === null
+            ? ""
+            : accountValid === false
+            ? "영문, 숫자, 밑줄 및 마침표만 사용할 수 있습니다."
+            : accountDuplicate === null
+            ? ""
+            : accountDuplicate === false
+            ? "이미 존재하는 아이디입니다."
+            : ""}
+        </span>
         <label htmlFor="intro" className={styles.intro}>
           소개
         </label>

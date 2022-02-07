@@ -55,3 +55,11 @@
   border-bottom: 1px solid #dbdbdb;
   margin-bottom: 16px;
 }
+
+.err {
+  position: relative;
+  bottom: 13px;
+  color: #eb5757;
+  font-size: 12px;
+  line-height: 14px;
+}
