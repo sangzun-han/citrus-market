@@ -4,15 +4,8 @@ import styles from "./profileInfo.module.css";
 
 const ProfileInfo = ({ info }) => {
   const history = useHistory();
-  const {
-    username,
-    accountname,
-    followerCount,
-    followingCount,
-    image,
-    intro,
-    isfollow,
-  } = info;
+  const { username, accountname, followerCount, followingCount, image, intro } =
+    info;
   return (
     <section className={styles.container}>
       <div className={styles.profile_info}>
