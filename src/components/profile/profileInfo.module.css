@@ -82,34 +82,25 @@
   justify-content: center;
 }
 
-.profile_area,
-.icon_share {
-  position: relative;
-  width: 34px;
-  height: 34px;
-  border-radius: 30px;
-  background: #ffffff;
-  border: 1px solid #dbdbdb;
-}
-
-.btn_follow {
+.btn_profile_update {
   width: 120px;
   height: 34px;
   border-radius: 30px;
-  background-color: #f26e22;
-  border: none;
-  color: #ffffff;
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  color: #767676;
   font-size: 14px;
   line-height: 18px;
-  margin: 0 10px;
+  margin: 0 12px;
 }
 
-.profile_area img,
-.icon_share img {
-  width: 15px;
-  height: 15px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.btn_procut {
+  width: 120px;
+  height: 34px;
+  border-radius: 30px;
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  color: #767676;
+  font-size: 14px;
+  line-height: 18px;
 }

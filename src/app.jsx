@@ -10,6 +10,7 @@ import ChatList from "./components/chatList/chatList";
 import Profile from "./components/profile/profile";
 import Search from "./components/serach/search";
 import UserProfile from "./components/userProfile/userProfile";
+import ProfileUpdate from "./components/profileUpdate/profileUpdate";
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -48,6 +49,9 @@ function App() {
       </Route>
       <Route path="/user-profile/:accountName">
         <UserProfile isLogin={isLogin} />
+      </Route>
+      <Route path="/profile-update">
+        <ProfileUpdate />
       </Route>
     </>
   );

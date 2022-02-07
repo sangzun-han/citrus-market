@@ -1,7 +1,9 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import styles from "./profileInfo.module.css";
 
 const ProfileInfo = ({ info }) => {
+  const history = useHistory();
   const {
     username,
     accountname,
@@ -34,15 +36,13 @@ const ProfileInfo = ({ info }) => {
         <p className={styles.detail_desc}>{intro}</p>
       </div>
       <div className={styles.more}>
-        <div className={styles.profile_area}>
-          <img src="/images/profile/icon-message-circle.png" alt="message" />
-        </div>
-
-        <button className={styles.btn_follow}>팔로우</button>
-
-        <div className={styles.icon_share}>
-          <img src="/images/profile/icon-share.png" alt="icon-share" />
-        </div>
+        <button
+          className={styles.btn_profile_update}
+          onClick={() => history.push("/profile-update")}
+        >
+          프로필 수정
+        </button>
+        <button className={styles.btn_procut}>상품 등록</button>
       </div>
     </section>
   );
