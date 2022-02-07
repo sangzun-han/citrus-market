@@ -83,7 +83,9 @@ input::placeholder {
   color: #dbdbdb;
 }
 
-label {
+.upload_img,
+.username,
+.accountname {
   font-size: 12px;
   line-height: 15px;
   font-weight: 500;

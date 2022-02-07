@@ -1,10 +1,13 @@
 import React from "react";
+import ProfileUpdateHeader from "./profileUpdateHeader";
+import ProfileUpdateInfo from "./profileUpdateInfo";
 
 const ProfileUpdate = () => {
   return (
-    <div>
-      <h1></h1>
-    </div>
+    <>
+      <ProfileUpdateHeader />
+      <ProfileUpdateInfo />
+    </>
   );
 };
 

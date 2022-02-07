@@ -1,0 +1,34 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 0.5px solid #dbdbdb;
+}
+
+.back {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.back img {
+  width: 22px;
+  height: 22px;
+}
+
+.save {
+  width: 90px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.btn_save {
+  width: 90px;
+  height: 32px;
+  border: none;
+  border-radius: 32px;
+  background-color: #f26e22;
+  color: #ffffff;
+}

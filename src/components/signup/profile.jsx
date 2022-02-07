@@ -116,7 +116,7 @@ const Profile = ({ setUserName, setAccountName, setIntro, setImage }) => {
               src={profileImage}
               alt="basic-profile"
             />
-            <label htmlFor="uploadImage">
+            <label htmlFor="uploadImage" className={styles.upload_img}>
               <img
                 className={styles.upload_file}
                 src="images/signup/upload-file.png"
@@ -134,7 +134,9 @@ const Profile = ({ setUserName, setAccountName, setIntro, setImage }) => {
           </div>
 
           <div className={`${styles.input_wrap} ${styles.input_username}`}>
-            <label htmlFor="username">사용자 이름</label>
+            <label htmlFor="username" className={styles.username}>
+              사용자 이름
+            </label>
             <input
               ref={userNameRef}
               type="text"
@@ -144,7 +146,9 @@ const Profile = ({ setUserName, setAccountName, setIntro, setImage }) => {
           </div>
 
           <div className={styles.input_wrap}>
-            <label htmlFor="accountID">계정 ID</label>
+            <label htmlFor="accountID" className={styles.accountname}>
+              계정 ID
+            </label>
             <input
               ref={accountNameRef}
               type="text"
