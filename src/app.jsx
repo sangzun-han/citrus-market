@@ -51,7 +51,7 @@ function App() {
         <UserProfile isLogin={isLogin} />
       </Route>
       <Route path="/profile-update">
-        <ProfileUpdate />
+        <ProfileUpdate isLogin={isLogin} />
       </Route>
     </>
   );
