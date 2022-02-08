@@ -1,16 +1,14 @@
 import React from "react";
 import styles from "./product.module.css";
-
-const Product = () => {
+import ProductInfo from "./productInfo";
+const Product = ({ products }) => {
   return (
     <section className={styles.product}>
       <h1 className={styles.title}>판매 중인 상품</h1>
-      <div className={styles.product_info}>
-        <div className={styles.product_img}>
-          <img src="/images/home/symbol-logo-gray.png" alt="" />
-        </div>
-        <p className={styles.product_name}>애월읍 노지 감귤</p>
-        <p className={styles.product_price}>35,000원</p>
+      <div className={styles.wrap}>
+        {products.map((product) => {
+          return <ProductInfo key={product.id} product={product} />;
+        })}
       </div>
     </section>
   );

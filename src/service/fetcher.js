@@ -137,3 +137,10 @@ export const productUpload = async (productData, token) => {
   );
   return res;
 };
+
+// 상품 리스트
+
+export const getProductList = async (accountName, token) => {
+  const res = await axios(getConfigWithToken(`/product/${accountName}`, token));
+  return res;
+};

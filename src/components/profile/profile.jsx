@@ -3,7 +3,7 @@ import styles from "./profile.module.css";
 
 import { useHistory } from "react-router-dom";
 import { getCookie } from "../../service/cookie";
-import { getInfo } from "../../service/fetcher";
+import { getInfo, getProductList } from "../../service/fetcher";
 import Nav from "../nav/nav";
 import PostArea from "./postArea";
 import Product from "./product";
@@ -17,20 +17,27 @@ const Profile = ({ isLogin, setIsLogin }) => {
   const accountName = getCookie("accountname");
   const token = getCookie("token");
   const [info, setInfo] = useState("");
+  const [products, setProducts] = useState([]);
   const [modal, setModal] = useState(false);
   const [logoutModal, setLogoutModal] = useState(false);
   const outSection = useRef();
 
   useEffect(() => {
-    if (!isLogin) {
-      history.push("/email-login");
-    }
+    return () => {
+      if (!isLogin) {
+        history.push("/email-login");
+      }
+    };
   }, [isLogin, history]);
 
   useEffect(() => {
     let isGetInfo = true;
     getInfo(accountName, token).then((res) => {
       if (isGetInfo) setInfo(res.data.profile);
+    });
+
+    getProductList(accountName, token).then((res) => {
+      setProducts(res.data.product);
     });
     return () => (isGetInfo = false);
   }, [accountName, token]);
@@ -46,7 +53,7 @@ const Profile = ({ isLogin, setIsLogin }) => {
         }}
       >
         <ProfileInfo info={info} />
-        <Product />
+        <Product products={products} />
         <PostArea />
         <Nav />
         {modal ? <SettingModal setLogoutModal={setLogoutModal} /> : ""}
