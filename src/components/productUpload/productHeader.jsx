@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./productHeader.module.css";
 import { useHistory } from "react-router-dom";
 
-const ProductHeader = ({ valid }) => {
+const ProductHeader = ({ valid, onSubmit }) => {
   const history = useHistory();
   const allInput = valid === true ? styles.on : "";
 
@@ -16,6 +16,7 @@ const ProductHeader = ({ valid }) => {
         <button
           className={`${styles.btn_upload} ${allInput}`}
           disabled={!valid}
+          onClick={onSubmit}
         >
           저장
         </button>

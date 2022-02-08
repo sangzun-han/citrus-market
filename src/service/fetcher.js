@@ -23,6 +23,18 @@ const postConfigWithToken = (url, token) => {
   };
 };
 
+const postConfigWithTokenAndData = (url, data, token) => {
+  return {
+    method: "POST",
+    url: API_END_POINT + url,
+    headers: {
+      Authorization: "Bearer " + token,
+      "Content-type": "application/json",
+    },
+    data: data,
+  };
+};
+
 const getConfigWithToken = (url, token) => {
   return {
     method: "GET",
@@ -115,5 +127,13 @@ export const userUnFollow = async (accountName, token) => {
 // 프로필 수정
 export const profileUpdate = async (user, token) => {
   const res = await axios(putConfgWithToken("/user", user, token));
+  return res;
+};
+
+// 상품 등록
+export const productUpload = async (productData, token) => {
+  const res = await axios(
+    postConfigWithTokenAndData("/product", productData, token)
+  );
   return res;
 };
