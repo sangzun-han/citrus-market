@@ -22,10 +22,17 @@
   margin-bottom: 30px;
 }
 
+.hidden .default_img {
+  width: 322px;
+  height: 204px;
+  border-radius: 10px;
+}
+
 .hidden .btn_upload {
   position: absolute;
   bottom: 12px;
   right: 12px;
+  cursor: pointer;
 }
 
 .product_info {

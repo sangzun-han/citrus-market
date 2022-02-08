@@ -2,8 +2,10 @@ import React from "react";
 import styles from "./productHeader.module.css";
 import { useHistory } from "react-router-dom";
 
-const ProductHeader = () => {
+const ProductHeader = ({ valid }) => {
   const history = useHistory();
+  const allInput = valid === true ? styles.on : "";
+
   return (
     <header className={styles.header}>
       <div className={styles.back} onClick={() => history.goBack()}>
@@ -11,7 +13,12 @@ const ProductHeader = () => {
       </div>
 
       <div className={styles.upload}>
-        <button className={styles.btn_upload}>저장</button>
+        <button
+          className={`${styles.btn_upload} ${allInput}`}
+          disabled={!valid}
+        >
+          저장
+        </button>
       </div>
     </header>
   );
