@@ -9,11 +9,32 @@ const ProductUploadInfo = ({
   setValid,
 }) => {
   const [nameValid, setNameValid] = useState(null);
+  const [priceValid, setPriceValid] = useState(null);
 
+  // 상품명 유효성 검사
   const checkName = () => {
     if (nameRef.current.value.length >= 2 && nameRef.current.value.length <= 15)
       setNameValid(true);
     else setNameValid(false);
+  };
+
+  // 가격 유효성 검사
+  const checkPrice = () => {
+    const reg = /[^0-9,]/g;
+    if (reg.test(priceRef.current.value)) {
+      priceRef.current.value = priceRef.current.value.replace(reg, "");
+    }
+
+    if (priceRef.current.value.length === 0) setPriceValid(false);
+    else setPriceValid(true);
+  };
+
+  // 가격 '원'단위로 변환
+  const convertPrice = () => {
+    let price = priceRef.current.value.replace(/,/g, "");
+    priceRef.current.value = price
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
   return (
@@ -63,6 +84,7 @@ const ProductUploadInfo = ({
             className={styles.input_info}
             type="text"
             placeholder="숫자만 입력 가능합니다."
+            onBlur={convertPrice}
           />
         </div>
 
