@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { checkAccountName } from "../../service/fetcher";
 import styles from "./profileUpdateInfo.module.css";
 
@@ -7,13 +7,12 @@ const ProfileUpdateInfo = ({
   profileImage,
   setProfileImage,
   setValid,
+  imageRef,
+  userNameRef,
+  accountNameRef,
+  introRef,
 }) => {
   const { username, accountname, intro } = info;
-
-  const imageRef = useRef();
-  const userNameRef = useRef();
-  const accountNameRef = useRef();
-  const introRef = useRef();
 
   const [userNameValid, setUserNameValid] = useState(null);
   const [accountValid, setAccountValid] = useState(null);

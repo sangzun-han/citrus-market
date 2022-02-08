@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { API_END_POINT } from "../../constants";
 import { checkAccountName, profileImageUpload } from "../../service/fetcher";
 import styles from "./profile.module.css";
 
@@ -12,7 +13,7 @@ const Profile = ({ setUserName, setAccountName, setIntro, setImage }) => {
     "/images/signup/basic-profile-img.png"
   );
 
-  const [userNameValid, setUserNameValid] = useState(false);
+  const [userNameValid, setUserNameValid] = useState(null);
   const [accountValid, setAccountValid] = useState(null);
   const [accountDuplicate, setAccountDuplicate] = useState(null);
   const [introValid, setIntroValid] = useState(null);
@@ -36,7 +37,7 @@ const Profile = ({ setUserName, setAccountName, setIntro, setImage }) => {
   const imageUpload = async () => {
     if (imageRef.current.files.length) {
       return await profileImageUpload(imageRef.current.files).then((res) => {
-        setImage(res.data.filename);
+        setImage(API_END_POINT + "/" + res.data.filename);
       });
     }
   };

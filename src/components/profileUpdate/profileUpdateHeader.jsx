@@ -2,8 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import styles from "./profileUpdateHeader.module.css";
 
-const ProfileUpdateHeader = ({ valid, allInput }) => {
-  console.log(allInput);
+const ProfileUpdateHeader = ({ valid, allInput, onSubmit }) => {
   const history = useHistory();
   return (
     <header className={styles.header}>
@@ -12,7 +11,11 @@ const ProfileUpdateHeader = ({ valid, allInput }) => {
       </div>
 
       <div className={styles.save}>
-        <button className={`${styles.btn_save} ${allInput}`} disabled={!valid}>
+        <button
+          className={`${styles.btn_save} ${allInput}`}
+          disabled={!valid}
+          onClick={onSubmit}
+        >
           저장
         </button>
       </div>

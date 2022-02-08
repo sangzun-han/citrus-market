@@ -34,7 +34,7 @@ const getConfigWithToken = (url, token) => {
   };
 };
 
-const putConfgWithToken = (url, token, data) => {
+const putConfgWithToken = (url, data, token) => {
   return {
     method: "PUT",
     url: API_END_POINT + url,
@@ -78,7 +78,7 @@ export const checkAccountName = async (userData) => {
 export const profileImageUpload = async (files) => {
   const data = new FormData();
   data.append("image", files[0], files[0].name);
-  const res = await axios(postConfig("/image/uploadfile"), data);
+  const res = await axios(postConfig("/image/uploadfile", data));
   return res;
 };
 
@@ -113,7 +113,7 @@ export const userUnFollow = async (accountName, token) => {
 };
 
 // 프로필 수정
-export const profileUpdate = async (userData, token) => {
-  const res = await axios(putConfgWithToken("/user", userData, token));
+export const profileUpdate = async (user, token) => {
+  const res = await axios(putConfgWithToken("/user", user, token));
   return res;
 };
