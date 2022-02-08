@@ -35,7 +35,12 @@ const ProfileInfo = ({ info }) => {
         >
           프로필 수정
         </button>
-        <button className={styles.btn_procut}>상품 등록</button>
+        <button
+          className={styles.btn_procut}
+          onClick={() => history.push("/product-upload")}
+        >
+          상품 등록
+        </button>
       </div>
     </section>
   );
