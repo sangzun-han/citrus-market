@@ -4,13 +4,13 @@ import styles from "./userProfileInfo.module.css";
 
 const UserProfileInfo = ({ info, token, accountName }) => {
   const {
-    followerCount,
     accountname,
+    followerCount,
     followingCount,
     image,
     intro,
-    isfollow,
     username,
+    isfollow,
   } = info;
 
   const [follow, setFollow] = useState(isfollow);
@@ -25,6 +25,7 @@ const UserProfileInfo = ({ info, token, accountName }) => {
 
   const unFollow = () => {
     userUnFollow(accountName, token).then(() => {
+      console.log(follow);
       setFollow(false);
       setFollower((follower) => follower - 1);
     });
