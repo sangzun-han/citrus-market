@@ -30,7 +30,7 @@ const Nav = () => {
           />
           <span>채팅</span>
         </button>
-        <button className={styles.btn} onClick={() => history.push("/edit")}>
+        <button className={styles.btn} onClick={() => history.push("/editor")}>
           <img src="/images/home/icon-edit.png" alt="icon-edit" />
           <span>게시물 작성</span>
         </button>

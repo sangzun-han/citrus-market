@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { userFollow, userUnFollow } from "../../service/fetcher";
 import styles from "./userProfileInfo.module.css";
 

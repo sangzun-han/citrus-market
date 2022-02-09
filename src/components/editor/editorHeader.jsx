@@ -1,8 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import styles from "./profileUpdateHeader.module.css";
+import styles from "./editorHeader.module.css";
 
-const ProfileUpdateHeader = ({ valid, allInput, onSubmit }) => {
+const EditorHeader = () => {
   const history = useHistory();
   return (
     <header className={styles.header}>
@@ -11,16 +11,10 @@ const ProfileUpdateHeader = ({ valid, allInput, onSubmit }) => {
       </div>
 
       <div className={styles.save}>
-        <button
-          className={`${styles.btn_save} ${allInput}`}
-          disabled={!valid}
-          onClick={onSubmit}
-        >
-          저장
-        </button>
+        <button className={styles.btn_upload}>저장</button>
       </div>
     </header>
   );
 };
 
-export default ProfileUpdateHeader;
+export default EditorHeader;

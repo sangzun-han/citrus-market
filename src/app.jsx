@@ -1,6 +1,7 @@
 import "./app.css";
 import { Route } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { getCookie } from "./service/cookie";
 import Splash from "./components/splash/splash";
 import Login from "./components/login/login";
 import LoginEmail from "./components/loginEmail/loginEmail";
@@ -13,7 +14,7 @@ import UserProfile from "./components/userProfile/userProfile";
 import ProfileUpdate from "./components/profileUpdate/profileUpdate";
 import ProductUpload from "./components/productUpload/productUpload";
 import Follower from "./components/follower/follower";
-import { getCookie } from "./service/cookie";
+import Editor from "./components/editor/editor";
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -63,6 +64,9 @@ function App() {
       </Route>
       <Route path="/follower">
         <Follower isLogin={isLogin} />
+      </Route>
+      <Route path="/editor">
+        <Editor isLogin={isLogin} />
       </Route>
     </>
   );
