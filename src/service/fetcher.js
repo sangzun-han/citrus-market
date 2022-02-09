@@ -144,3 +144,11 @@ export const getProductList = async (accountName, token) => {
   const res = await axios(getConfigWithToken(`/product/${accountName}`, token));
   return res;
 };
+
+// 팔로워 리스트(나를 팔로우한 사용자 목록)
+export const getFollowerList = async (accountName, token) => {
+  const res = await axios(
+    getConfigWithToken(`/profile/${accountName}/follower`, token)
+  );
+  return res;
+};
