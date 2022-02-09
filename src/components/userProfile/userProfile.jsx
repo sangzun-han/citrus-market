@@ -12,9 +12,14 @@ const UserProfile = ({ isLogin }) => {
   const token = getCookie("token");
   const [info, setInfo] = useState("");
 
+  const [follow, setFollow] = useState(null);
+  const [follower, setFollower] = useState(null);
+
   useEffect(() => {
     getInfo(accountName, token).then((res) => {
       setInfo(res.data.profile);
+      setFollow(res.data.profile.isfollow);
+      setFollower(res.data.profile.followerCount);
     });
   }, [accountName, token]);
 
@@ -23,7 +28,15 @@ const UserProfile = ({ isLogin }) => {
   return (
     <>
       <ProfileHeader />
-      <UserProfileInfo info={info} token={token} accountName={accountName} />
+      <UserProfileInfo
+        info={info}
+        token={token}
+        accountName={accountName}
+        follow={follow}
+        setFollow={setFollow}
+        follower={follower}
+        setFollower={setFollower}
+      />
       <Nav />
     </>
   );
