@@ -1,0 +1,19 @@
+.product {
+  display: flex;
+  padding: 20px 21px;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+.wrap {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+}
