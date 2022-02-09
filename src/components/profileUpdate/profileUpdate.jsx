@@ -10,8 +10,9 @@ import ProfileUpdateHeader from "./profileUpdateHeader";
 import ProfileUpdateInfo from "./profileUpdateInfo";
 import styles from "./profileUpdate.module.css";
 import { API_END_POINT } from "../../constants";
+import { Redirect } from "react-router-dom";
 
-const ProfileUpdate = () => {
+const ProfileUpdate = ({ isLogin }) => {
   const history = useHistory();
   const accountName = getCookie("accountname");
   const token = getCookie("token");
@@ -69,15 +70,13 @@ const ProfileUpdate = () => {
   };
 
   useEffect(() => {
-    let isGetInfo = true;
     getInfo(accountName, token).then((res) => {
-      if (isGetInfo) {
-        setProfileImage(res.data.profile.image);
-        setInfo(res.data.profile);
-      }
+      setProfileImage(res.data.profile.image);
+      setInfo(res.data.profile);
     });
-    return () => (isGetInfo = false);
   }, [accountName, token]);
+
+  if (!isLogin) return <Redirect to={"/email-login"} />;
 
   return (
     <>

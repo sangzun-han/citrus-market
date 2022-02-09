@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { join } from "../../service/fetcher";
 import Membership from "./membership";
 import Profile from "./profile";
 
-const Signup = () => {
+const Signup = ({ isLogin }) => {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,6 +34,8 @@ const Signup = () => {
       });
     }
   }, [email, password, userName, accountName, intro, image, history]);
+
+  if (isLogin) return <Redirect to={"/home"} />;
 
   if (email && password) {
     return (

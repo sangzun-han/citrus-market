@@ -1,8 +1,11 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styles from "./login.module.css";
 
-const Login = () => {
+const Login = ({ isLogin }) => {
+  if (isLogin) return <Redirect to={"/home"} />;
+
   return (
     <article className={styles.background}>
       <section className={styles.logo}>

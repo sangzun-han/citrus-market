@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { getCookie, setCookie } from "../../service/cookie";
 import { login } from "../../service/fetcher";
 import styles from "./loginEmail.module.css";
@@ -49,7 +49,7 @@ const LoginEmail = ({ isLogin, setIsLogin }) => {
       setIsLogin(true);
       history.push("/home");
     }
-  }, [isLogin, setIsLogin, history]);
+  }, [setIsLogin, history]);
 
   useEffect(() => {
     if (email && password) {
@@ -58,6 +58,8 @@ const LoginEmail = ({ isLogin, setIsLogin }) => {
       setValid(false);
     }
   }, [email, password]);
+
+  if (isLogin) return <Redirect to={"/home"} />;
 
   return (
     <article>

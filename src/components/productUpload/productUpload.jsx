@@ -5,8 +5,9 @@ import { API_END_POINT } from "../../constants";
 import { getCookie } from "../../service/cookie";
 import ProductHeader from "./productHeader";
 import ProductUploadInfo from "./productUploadInfo";
+import { Redirect } from "react-router-dom";
 
-const ProductUpload = () => {
+const ProductUpload = ({ isLogin }) => {
   const history = useHistory();
 
   const imageRef = useRef();
@@ -39,6 +40,8 @@ const ProductUpload = () => {
       });
     });
   };
+
+  if (!isLogin) return <Redirect to={"/email-login"} />;
 
   return (
     <>

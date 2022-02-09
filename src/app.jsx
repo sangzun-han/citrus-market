@@ -13,12 +13,15 @@ import UserProfile from "./components/userProfile/userProfile";
 import ProfileUpdate from "./components/profileUpdate/profileUpdate";
 import ProductUpload from "./components/productUpload/productUpload";
 import Follower from "./components/follower/follower";
+import { getCookie } from "./service/cookie";
 
 function App() {
   const [splash, setSplash] = useState(true);
   const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
+    if (getCookie("accountname") && getCookie("token")) setIsLogin(true);
+
     setTimeout(() => {
       setSplash(false);
     }, 1000);
@@ -29,37 +32,37 @@ function App() {
   return (
     <>
       <Route exact path="/">
-        <Login />
+        <Login isLogin={isLogin} />
       </Route>
       <Route path="/email-login">
-        <LoginEmail setIsLogin={setIsLogin} />
+        <LoginEmail isLogin={isLogin} setIsLogin={setIsLogin} />
       </Route>
       <Route path="/signup">
-        <Signup />
+        <Signup isLogin={isLogin} />
       </Route>
       <Route path="/home">
-        <Home />
+        <Home isLogin={isLogin} />
       </Route>
       <Route path="/chatList">
-        <ChatList />
+        <ChatList isLogin={isLogin} />
       </Route>
       <Route path="/profile">
         <Profile isLogin={isLogin} setIsLogin={setIsLogin} />
       </Route>
       <Route path="/search">
-        <Search />
+        <Search isLogin={isLogin} />
       </Route>
       <Route path="/user-profile/:accountName">
-        <UserProfile />
+        <UserProfile isLogin={isLogin} />
       </Route>
       <Route path="/profile-update">
-        <ProfileUpdate />
+        <ProfileUpdate isLogin={isLogin} />
       </Route>
       <Route path="/product-upload">
-        <ProductUpload />
+        <ProductUpload isLogin={isLogin} />
       </Route>
       <Route path="/follower">
-        <Follower />
+        <Follower isLogin={isLogin} />
       </Route>
     </>
   );

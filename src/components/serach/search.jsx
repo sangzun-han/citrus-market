@@ -5,8 +5,9 @@ import { getCookie } from "../../service/cookie";
 import Nav from "../nav/nav";
 import SearchHeader from "./searchHeader";
 import SearchResult from "./searchResult";
+import { Redirect } from "react-router-dom";
 
-const Search = () => {
+const Search = ({ isLogin }) => {
   const searchRef = useRef("");
   const [userData, setUserData] = useState([]);
 
@@ -15,6 +16,8 @@ const Search = () => {
       setUserData(res.data);
     });
   };
+
+  if (!isLogin) return <Redirect to={"/email-login"} />;
   return (
     <>
       <SearchHeader searchRef={searchRef} onSearch={onSearch} />

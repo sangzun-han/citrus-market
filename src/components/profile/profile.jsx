@@ -10,8 +10,9 @@ import ProfileHeader from "./profileHeader";
 import ProfileInfo from "./profileInfo";
 import SettingModal from "../settingModal/settingModal";
 import Logout from "../logout/logout";
+import { Redirect } from "react-router-dom";
 
-const Profile = ({ setIsLogin }) => {
+const Profile = ({ isLogin, setIsLogin }) => {
   const accountName = getCookie("accountname");
   const token = getCookie("token");
   const [info, setInfo] = useState("");
@@ -29,6 +30,8 @@ const Profile = ({ setIsLogin }) => {
       setProducts(res.data.product);
     });
   }, [accountName, token]);
+
+  if (!isLogin) return <Redirect to={"/email-login"} />;
 
   return (
     <>

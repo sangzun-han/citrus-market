@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
 import { getCookie } from "../../service/cookie";
 import { getFollowerList } from "../../service/fetcher";
 import FollowerHeader from "./followerHeader";
 import FollowerInfo from "./followerInfo";
 
-const Follower = () => {
+const Follower = ({ isLogin }) => {
   const accountName = getCookie("accountname");
   const token = getCookie("token");
   const [infos, setInfos] = useState([]);
@@ -14,6 +15,9 @@ const Follower = () => {
       setInfos(res.data);
     });
   }, [accountName, token]);
+
+  if (!isLogin) return <Redirect to={"/email-login"} />;
+
   return (
     <>
       <FollowerHeader />

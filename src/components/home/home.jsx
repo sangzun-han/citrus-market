@@ -1,11 +1,13 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Header from "../header/header";
 import Nav from "../nav/nav";
 import styles from "./home.module.css";
 
-const Home = () => {
+const Home = ({ isLogin }) => {
   const history = useHistory();
+  if (!isLogin) return <Redirect to={"/email-login"} />;
 
   return (
     <article className={styles.container}>
