@@ -9,7 +9,10 @@ const ProfileInfo = ({ info }) => {
   return (
     <section className={styles.container}>
       <div className={styles.profile_info}>
-        <div className={styles.followers}>
+        <div
+          className={styles.followers}
+          onClick={() => history.push("/follower")}
+        >
           <p className={styles.followers_count}>{followerCount}</p>
           <p className={styles.follow}>followers</p>
         </div>

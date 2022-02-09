@@ -12,6 +12,14 @@
   align-items: center;
 }
 
+.followers {
+  cursor: pointer;
+}
+
+.followings {
+  cursor: pointer;
+}
+
 .profile_img {
   width: 110px;
   height: 110px;

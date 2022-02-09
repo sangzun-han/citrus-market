@@ -12,6 +12,7 @@ import Search from "./components/serach/search";
 import UserProfile from "./components/userProfile/userProfile";
 import ProfileUpdate from "./components/profileUpdate/profileUpdate";
 import ProductUpload from "./components/productUpload/productUpload";
+import Follower from "./components/follower/follower";
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -56,6 +57,9 @@ function App() {
       </Route>
       <Route path="/product-upload">
         <ProductUpload isLogin={isLogin} />
+      </Route>
+      <Route path="/follower">
+        <Follower isLogin={isLogin} />
       </Route>
     </>
   );
