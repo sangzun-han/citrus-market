@@ -1,14 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./search.module.css";
 import { userSearch } from "../../service/fetcher";
 import { getCookie } from "../../service/cookie";
-import { useHistory } from "react-router-dom";
 import Nav from "../nav/nav";
 import SearchHeader from "./searchHeader";
 import SearchResult from "./searchResult";
 
-const Search = ({ isLogin }) => {
-  const history = useHistory();
+const Search = () => {
   const searchRef = useRef("");
   const [userData, setUserData] = useState([]);
 
@@ -17,12 +15,6 @@ const Search = ({ isLogin }) => {
       setUserData(res.data);
     });
   };
-
-  useEffect(() => {
-    if (!isLogin) {
-      history.push("/email-login");
-    }
-  }, [isLogin, history]);
   return (
     <>
       <SearchHeader searchRef={searchRef} onSearch={onSearch} />

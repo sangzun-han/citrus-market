@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./profile.module.css";
 
-import { useHistory } from "react-router-dom";
 import { getCookie } from "../../service/cookie";
 import { getInfo, getProductList } from "../../service/fetcher";
 import Nav from "../nav/nav";
@@ -12,8 +11,7 @@ import ProfileInfo from "./profileInfo";
 import SettingModal from "../settingModal/settingModal";
 import Logout from "../logout/logout";
 
-const Profile = ({ isLogin, setIsLogin }) => {
-  const history = useHistory();
+const Profile = ({ setIsLogin }) => {
   const accountName = getCookie("accountname");
   const token = getCookie("token");
   const [info, setInfo] = useState("");
@@ -23,23 +21,13 @@ const Profile = ({ isLogin, setIsLogin }) => {
   const outSection = useRef();
 
   useEffect(() => {
-    return () => {
-      if (!isLogin) {
-        history.push("/email-login");
-      }
-    };
-  }, [isLogin, history]);
-
-  useEffect(() => {
-    let isGetInfo = true;
     getInfo(accountName, token).then((res) => {
-      if (isGetInfo) setInfo(res.data.profile);
+      setInfo(res.data.profile);
     });
 
     getProductList(accountName, token).then((res) => {
       setProducts(res.data.product);
     });
-    return () => (isGetInfo = false);
   }, [accountName, token]);
 
   return (

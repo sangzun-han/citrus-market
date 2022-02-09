@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { productUpload, profileImageUpload } from "../../service/fetcher";
 import { API_END_POINT } from "../../constants";
@@ -6,7 +6,7 @@ import { getCookie } from "../../service/cookie";
 import ProductHeader from "./productHeader";
 import ProductUploadInfo from "./productUploadInfo";
 
-const ProductUpload = ({ isLogin }) => {
+const ProductUpload = () => {
   const history = useHistory();
 
   const imageRef = useRef();
@@ -22,12 +22,6 @@ const ProductUpload = ({ isLogin }) => {
       return res.data.filename;
     });
   };
-
-  useEffect(() => {
-    if (!isLogin) {
-      history.push("/email-login");
-    }
-  }, [isLogin, history]);
 
   const onSubmit = () => {
     imageUpload().then((res) => {

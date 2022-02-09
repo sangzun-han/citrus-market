@@ -1,13 +1,16 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { deleteCookie, getCookie } from "../../service/cookie";
 import styles from "./logout.module.css";
 
 const Logout = ({ setLogoutModal, setIsLogin }) => {
+  const history = useHistory();
   const onLogout = () => {
     if (getCookie("token") && getCookie("accountname")) {
       deleteCookie("token");
       deleteCookie("accountname");
       setIsLogin(false);
+      history.push("/");
     }
   };
 

@@ -1,17 +1,8 @@
-import React, { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React from "react";
 import Header from "../header/header";
 import Nav from "../nav/nav";
 
-const ChatList = ({ isLogin }) => {
-  const history = useHistory();
-
-  useEffect(() => {
-    if (!isLogin) {
-      history.push("/email-login");
-    }
-  }, [isLogin, history]);
-
+const ChatList = () => {
   return (
     <div>
       <Header />

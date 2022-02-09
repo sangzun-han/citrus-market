@@ -11,7 +11,7 @@ import ProfileUpdateInfo from "./profileUpdateInfo";
 import styles from "./profileUpdate.module.css";
 import { API_END_POINT } from "../../constants";
 
-const ProfileUpdate = ({ isLogin }) => {
+const ProfileUpdate = () => {
   const history = useHistory();
   const accountName = getCookie("accountname");
   const token = getCookie("token");
@@ -67,12 +67,6 @@ const ProfileUpdate = ({ isLogin }) => {
       });
     }
   };
-
-  useEffect(() => {
-    if (!isLogin) {
-      history.push("/email-login");
-    }
-  }, [isLogin, history]);
 
   useEffect(() => {
     let isGetInfo = true;

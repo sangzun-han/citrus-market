@@ -32,34 +32,34 @@ function App() {
         <Login />
       </Route>
       <Route path="/email-login">
-        <LoginEmail isLogin={isLogin} setIsLogin={setIsLogin} />
+        <LoginEmail setIsLogin={setIsLogin} />
       </Route>
       <Route path="/signup">
         <Signup />
       </Route>
       <Route path="/home">
-        <Home isLogin={isLogin} />
+        <Home />
       </Route>
       <Route path="/chatList">
-        <ChatList isLogin={isLogin} />
+        <ChatList />
       </Route>
       <Route path="/profile">
         <Profile isLogin={isLogin} setIsLogin={setIsLogin} />
       </Route>
       <Route path="/search">
-        <Search isLogin={isLogin} />
+        <Search />
       </Route>
       <Route path="/user-profile/:accountName">
-        <UserProfile isLogin={isLogin} />
+        <UserProfile />
       </Route>
       <Route path="/profile-update">
-        <ProfileUpdate isLogin={isLogin} />
+        <ProfileUpdate />
       </Route>
       <Route path="/product-upload">
-        <ProductUpload isLogin={isLogin} />
+        <ProductUpload />
       </Route>
       <Route path="/follower">
-        <Follower isLogin={isLogin} />
+        <Follower />
       </Route>
     </>
   );
