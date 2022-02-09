@@ -22,7 +22,6 @@ const UserProfileInfo = ({
 
   const unFollow = () => {
     userUnFollow(accountName, token).then(() => {
-      console.log(follow);
       setFollow(false);
       setFollower((follower) => follower - 1);
     });
