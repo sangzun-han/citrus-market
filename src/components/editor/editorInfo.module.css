@@ -56,33 +56,12 @@
 }
 
 .upload_wrap {
+  width: 304px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-}
-
-.image_slide {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  width: 304px;
-  height: 228px;
-  border-radius: 10px;
-}
-
-.image_slide .upload_img {
-  width: 304px;
-  height: 228px;
-  border-radius: 10px;
-}
-
-.image_slide .btn_delete {
-  position: absolute;
-  width: 21px;
-  height: 21px;
-  top: 11px;
-  right: 11px;
-  cursor: pointer;
+  margin-left: 40px;
+  overflow-x: auto;
 }
 
 .btn_upload_img {

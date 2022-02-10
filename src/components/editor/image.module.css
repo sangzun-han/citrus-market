@@ -1,0 +1,23 @@
+.image_slide {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 304px;
+  height: 228px;
+  border-radius: 10px;
+}
+
+.image_slide .upload_img {
+  width: 304px;
+  height: 228px;
+  border-radius: 10px;
+}
+
+.image_slide .btn_delete {
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  top: 11px;
+  right: 11px;
+  cursor: pointer;
+}

@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./editorInfo.module.css";
+import Image from "./image";
+import MoreImage from "./moreImage";
 const EditorInfo = ({
   image,
   textAreaRef,
@@ -8,6 +10,7 @@ const EditorInfo = ({
   uploadImage,
   imagePreview,
   deleteImagePreview,
+  deleteMoreImagePreview,
 }) => {
   return (
     <main className={styles.container}>
@@ -27,23 +30,20 @@ const EditorInfo = ({
         </div>
         <div className={styles.upload_wrap}>
           {uploadImage.length === 1 ? (
-            <div className={styles.image_slide}>
-              <img
-                className={styles.upload_img}
-                src={uploadImage}
-                alt="upload"
-              />
-              <img
-                className={styles.btn_delete}
-                src="/images/editor/icon-delete.png"
-                alt="delete"
-                onClick={deleteImagePreview}
-              />
-            </div>
+            <Image
+              uploadImage={uploadImage}
+              deleteImagePreview={deleteImagePreview}
+            />
           ) : (
-            <div className={styles.image_slides}>
-              <img src={uploadImage} alt="uploads" />
-            </div>
+            uploadImage.map((uploadImage, index) => {
+              return (
+                <MoreImage
+                  key={index}
+                  uploadImage={uploadImage}
+                  deleteMoreImagePreview={deleteMoreImagePreview}
+                />
+              );
+            })
           )}
         </div>
         <label className={styles.btn_upload_img} htmlFor="upload_img">

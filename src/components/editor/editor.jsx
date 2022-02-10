@@ -44,9 +44,23 @@ const Editor = ({ isLogin }) => {
     }
   };
 
+  // 이미지 1개일 때 미리보기 삭제
   const deleteImagePreview = () => {
     setUploadImage([]);
     imageRef.current.value = "";
+  };
+
+  const deleteMoreImagePreview = (index) => {
+    const temp = uploadImage;
+    temp.splice(index, 1);
+    setUploadImage(() => [...temp]);
+    const dataTransfer = new DataTransfer();
+    Array.from(imageRef.current.files)
+      .filter((_, idx) => idx !== index)
+      .forEach((file) => {
+        dataTransfer.items.add(file);
+      });
+    imageRef.current.files = dataTransfer.files;
   };
 
   useEffect(() => {
@@ -66,6 +80,7 @@ const Editor = ({ isLogin }) => {
         uploadImage={uploadImage}
         imagePreview={imagePreview}
         deleteImagePreview={deleteImagePreview}
+        deleteMoreImagePreview={deleteMoreImagePreview}
       />
     </>
   );
