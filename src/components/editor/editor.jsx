@@ -11,6 +11,7 @@ const Editor = ({ isLogin }) => {
   // 프로필 이미지
   const [image, setImage] = useState("");
   const [uploadImage, setUploadImage] = useState([]);
+  const [valid, setValid] = useState(false);
 
   const textAreaRef = useRef();
   const imageRef = useRef();
@@ -25,6 +26,7 @@ const Editor = ({ isLogin }) => {
       textAreaRef.current.style.height = 400 + "px";
       textAreaRef.current.style.overflowY = "auto";
     }
+    checkValid();
   }, []);
 
   // 이미지 미리보기
@@ -41,6 +43,7 @@ const Editor = ({ isLogin }) => {
         };
         reader.readAsDataURL(event.target.files[index]);
       });
+      checkValid();
     }
   };
 
@@ -48,6 +51,7 @@ const Editor = ({ isLogin }) => {
   const deleteImagePreview = () => {
     setUploadImage([]);
     imageRef.current.value = "";
+    checkValid();
   };
 
   const deleteMoreImagePreview = (index) => {
@@ -63,6 +67,12 @@ const Editor = ({ isLogin }) => {
     imageRef.current.files = dataTransfer.files;
   };
 
+  const checkValid = () => {
+    if (imageRef.current.files.length && textAreaRef.current.value)
+      setValid(true);
+    else setValid(false);
+  };
+
   useEffect(() => {
     getInfo(accountName, token).then((res) => {
       setImage(res.data.profile.image);
@@ -71,7 +81,7 @@ const Editor = ({ isLogin }) => {
   if (!isLogin) return <Redirect to={"/email-login"} />;
   return (
     <>
-      <EditorHeader />
+      <EditorHeader valid={valid} />
       <EditorInfo
         image={image}
         textAreaRef={textAreaRef}

@@ -2,7 +2,8 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import styles from "./editorHeader.module.css";
 
-const EditorHeader = () => {
+const EditorHeader = ({ valid }) => {
+  const allInput = valid === true ? styles.on : "";
   const history = useHistory();
   return (
     <header className={styles.header}>
@@ -11,7 +12,12 @@ const EditorHeader = () => {
       </div>
 
       <div className={styles.save}>
-        <button className={styles.btn_upload}>저장</button>
+        <button
+          className={`${styles.btn_upload} ${allInput}`}
+          disabled={!valid}
+        >
+          업로드
+        </button>
       </div>
     </header>
   );

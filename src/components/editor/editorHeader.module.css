@@ -33,3 +33,8 @@
   background-color: #ffc7a7;
   color: #ffffff;
 }
+
+.on {
+  background-color: #f26e22;
+  cursor: pointer;
+}
