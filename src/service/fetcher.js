@@ -1,4 +1,3 @@
-import { getConfig } from "@testing-library/react";
 import axios from "axios";
 import { API_END_POINT } from "../constants";
 
@@ -174,6 +173,8 @@ export const post = async (postData, token) => {
 
 // 나의 게시글 목록
 export const getPost = async (accountName, token) => {
-  const res = await axios(getConfig(`/post/${accountName}/userpost`, token));
+  const res = await axios(
+    getConfigWithToken(`/post/${accountName}/userpost`, token)
+  );
   return res;
 };

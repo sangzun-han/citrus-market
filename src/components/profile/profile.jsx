@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./profile.module.css";
 
 import { getCookie } from "../../service/cookie";
-import { getInfo, getProductList } from "../../service/fetcher";
+import { getInfo, getPost, getProductList } from "../../service/fetcher";
 import Nav from "../nav/nav";
 import PostArea from "./postArea";
 import Product from "./product";
@@ -17,6 +17,7 @@ const Profile = ({ isLogin, setIsLogin }) => {
   const token = getCookie("token");
   const [info, setInfo] = useState("");
   const [products, setProducts] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [modal, setModal] = useState(false);
   const [logoutModal, setLogoutModal] = useState(false);
   const outSection = useRef();
@@ -28,6 +29,10 @@ const Profile = ({ isLogin, setIsLogin }) => {
 
     getProductList(accountName, token).then((res) => {
       setProducts(res.data.product);
+    });
+
+    getPost(accountName, token).then((res) => {
+      setPosts(res.data.post);
     });
   }, [accountName, token]);
 
@@ -45,7 +50,7 @@ const Profile = ({ isLogin, setIsLogin }) => {
       >
         <ProfileInfo info={info} />
         <Product products={products} />
-        <PostArea />
+        <PostArea posts={posts} />
         <Nav />
         {modal ? <SettingModal setLogoutModal={setLogoutModal} /> : ""}
         {logoutModal ? (
