@@ -152,3 +152,21 @@ export const getFollowerList = async (accountName, token) => {
   );
   return res;
 };
+
+// 상품 이미지 등록
+
+export const imagesUpload = async (files) => {
+  const data = new FormData();
+  for (let i = 0; i < files.length; i++) {
+    data.append("image", files[i], files[i].name);
+  }
+  return await axios(postConfig("/image/uploadfiles", data)).then((res) => {
+    res.data.map((item) => item.filename).join();
+  });
+};
+
+// 게시글 작성
+export const post = async (postData, token) => {
+  const res = await axios(postConfigWithTokenAndData("/post", postData, token));
+  return res;
+};

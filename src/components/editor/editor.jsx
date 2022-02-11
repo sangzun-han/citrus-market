@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import EditorHeader from "./editorHeader";
 import EditorInfo from "./editorInfo";
 import { getCookie } from "../../service/cookie";
-import { getInfo } from "../../service/fetcher";
+import { getInfo, post } from "../../service/fetcher";
 
 const Editor = ({ isLogin }) => {
   const accountName = getCookie("accountname");
@@ -67,10 +67,28 @@ const Editor = ({ isLogin }) => {
     imageRef.current.files = dataTransfer.files;
   };
 
+  const imageUpload = async () => {
+    if (imageRef.current.files.length || textAreaRef.current.value)
+      setValid(true);
+    else setValid(false);
+  };
+
   const checkValid = () => {
     if (imageRef.current.files.length && textAreaRef.current.value)
       setValid(true);
     else setValid(false);
+  };
+
+  const onSubmit = async () => {
+    const postData = {
+      post: {
+        content: textAreaRef.current.value,
+        image: "",
+      },
+    };
+    await post(postData, token).then((res) => {
+      console.log(res);
+    });
   };
 
   useEffect(() => {
@@ -81,7 +99,7 @@ const Editor = ({ isLogin }) => {
   if (!isLogin) return <Redirect to={"/email-login"} />;
   return (
     <>
-      <EditorHeader valid={valid} />
+      <EditorHeader valid={valid} onSubmit={onSubmit} />
       <EditorInfo
         image={image}
         textAreaRef={textAreaRef}
