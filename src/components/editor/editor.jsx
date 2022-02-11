@@ -3,9 +3,11 @@ import { Redirect } from "react-router-dom";
 import EditorHeader from "./editorHeader";
 import EditorInfo from "./editorInfo";
 import { getCookie } from "../../service/cookie";
-import { getInfo, post } from "../../service/fetcher";
+import { getInfo, imagesUpload, post } from "../../service/fetcher";
+import { useHistory } from "react-router-dom";
 
 const Editor = ({ isLogin }) => {
+  const history = useHistory();
   const accountName = getCookie("accountname");
   const token = getCookie("token");
   // 프로필 이미지
@@ -68,9 +70,9 @@ const Editor = ({ isLogin }) => {
   };
 
   const imageUpload = async () => {
-    if (imageRef.current.files.length || textAreaRef.current.value)
-      setValid(true);
-    else setValid(false);
+    return imagesUpload(imageRef.current.files).catch(() => {
+      alert("이미지 업로드 실패!");
+    });
   };
 
   const checkValid = () => {
@@ -86,8 +88,14 @@ const Editor = ({ isLogin }) => {
         image: "",
       },
     };
+    if (imageRef.current.files.length) {
+      imageUpload(imageRef.current.files).then((res) => {
+        postData.post.image = res;
+      });
+    } else postData.post.image = "";
+
     await post(postData, token).then((res) => {
-      console.log(res);
+      if (res) history.push("/profile");
     });
   };
 

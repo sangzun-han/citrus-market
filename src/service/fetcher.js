@@ -160,9 +160,9 @@ export const imagesUpload = async (files) => {
   for (let i = 0; i < files.length; i++) {
     data.append("image", files[i], files[i].name);
   }
-  return await axios(postConfig("/image/uploadfiles", data)).then((res) => {
-    res.data.map((item) => item.filename).join();
-  });
+  return await axios(postConfig("/image/uploadfiles", data)).then((res) =>
+    res.data.map((item) => item.filename).join()
+  );
 };
 
 // 게시글 작성
