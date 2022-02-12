@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./album.module.css";
+import PostAreaTop from "./postAreaTop";
 
-const Album = () => {
+const Album = ({ setAlbum }) => {
   return (
     <section className={styles.album}>
-      <div>
-        <img src="/assets/post-img-example.png" alt="img" />
-      </div>
+      <PostAreaTop setAlbum={setAlbum} />
+      as
     </section>
   );
 };

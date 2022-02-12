@@ -91,9 +91,13 @@ const Profile = ({ isLogin, setIsLogin }) => {
         <ProfileInfo info={info} />
         <Product products={products} />
         {album ? (
-          <Album />
+          <Album setAlbum={setAlbum} />
         ) : (
-          <PostArea posts={posts} handleModal={handleModal} />
+          <PostArea
+            posts={posts}
+            handleModal={handleModal}
+            setAlbum={setAlbum}
+          />
         )}
         <Nav />
         {modal ? <SettingModal setLogoutModal={setLogoutModal} /> : ""}
