@@ -35,7 +35,10 @@ const PostAreaInfo = ({ post, handleModal }) => {
         </div>
 
         <div className={styles.post_img}>
-          <img src={`${API_END_POINT}/${post.image}`} alt="post-img" />
+          <img
+            src={`${API_END_POINT}/${post.image.split(",")[0]}`}
+            alt="post-img"
+          />
         </div>
         <div className={styles.follow_info}>
           <div className={styles.follow}>
