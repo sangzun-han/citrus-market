@@ -17,6 +17,7 @@ import ProfileInfo from "./profileInfo";
 import SettingModal from "../settingModal/settingModal";
 import LogoutModal from "../logoutModal/logoutModal";
 import PostModal from "../postModal/postModal";
+import DeleteModal from "../deleteModal/deleteModal";
 
 const Profile = ({ isLogin, setIsLogin }) => {
   const accountName = getCookie("accountname");
@@ -40,6 +41,11 @@ const Profile = ({ isLogin, setIsLogin }) => {
       setPostModal(true);
     }
     setPostId(id);
+  };
+
+  const postDeleteModal = () => {
+    setPostModal(false);
+    setDeleteModal(true);
   };
 
   const postDelete = () => {
@@ -92,7 +98,8 @@ const Profile = ({ isLogin, setIsLogin }) => {
         ) : (
           ""
         )}
-        {postModal ? <PostModal postDelete={postDelete} /> : ""}
+        {postModal ? <PostModal postDeleteModal={postDeleteModal} /> : ""}
+        {deleteModal ? <DeleteModal postDelete={postDelete} /> : ""}
       </div>
     </>
   );
