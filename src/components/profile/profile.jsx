@@ -18,6 +18,7 @@ import SettingModal from "../settingModal/settingModal";
 import LogoutModal from "../logoutModal/logoutModal";
 import PostModal from "../postModal/postModal";
 import DeleteModal from "../deleteModal/deleteModal";
+import Album from "./album";
 
 const Profile = ({ isLogin, setIsLogin }) => {
   const accountName = getCookie("accountname");
@@ -26,6 +27,8 @@ const Profile = ({ isLogin, setIsLogin }) => {
   const [products, setProducts] = useState([]);
   const [posts, setPosts] = useState([]);
   const [modal, setModal] = useState(false);
+  const [album, setAlbum] = useState(false);
+
   const [logoutModal, setLogoutModal] = useState(false);
 
   const [postModal, setPostModal] = useState(false);
@@ -87,7 +90,11 @@ const Profile = ({ isLogin, setIsLogin }) => {
       >
         <ProfileInfo info={info} />
         <Product products={products} />
-        <PostArea posts={posts} handleModal={handleModal} />
+        {album ? (
+          <Album />
+        ) : (
+          <PostArea posts={posts} handleModal={handleModal} />
+        )}
         <Nav />
         {modal ? <SettingModal setLogoutModal={setLogoutModal} /> : ""}
         {logoutModal ? (
