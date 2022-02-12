@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { deleteCookie, getCookie } from "../../service/cookie";
-import styles from "./logout.module.css";
+import styles from "./logoutModal.module.css";
 
 const Logout = ({ setLogoutModal, setIsLogin }) => {
   const history = useHistory();

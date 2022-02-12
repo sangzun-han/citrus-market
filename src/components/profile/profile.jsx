@@ -15,7 +15,7 @@ import Product from "./product";
 import ProfileHeader from "./profileHeader";
 import ProfileInfo from "./profileInfo";
 import SettingModal from "../settingModal/settingModal";
-import Logout from "../logout/logout";
+import LogoutModal from "../logoutModal/logoutModal";
 import PostModal from "../postModal/postModal";
 
 const Profile = ({ isLogin, setIsLogin }) => {
@@ -30,6 +30,7 @@ const Profile = ({ isLogin, setIsLogin }) => {
   const [postModal, setPostModal] = useState(false);
   const [postId, setPostId] = useState("");
 
+  const [deleteModal, setDeleteModal] = useState(false);
   const outSection = useRef();
 
   const handleModal = (id) => {
@@ -84,7 +85,10 @@ const Profile = ({ isLogin, setIsLogin }) => {
         <Nav />
         {modal ? <SettingModal setLogoutModal={setLogoutModal} /> : ""}
         {logoutModal ? (
-          <Logout setLogoutModal={setLogoutModal} setIsLogin={setIsLogin} />
+          <LogoutModal
+            setLogoutModal={setLogoutModal}
+            setIsLogin={setIsLogin}
+          />
         ) : (
           ""
         )}
