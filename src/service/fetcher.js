@@ -58,6 +58,17 @@ const putConfgWithToken = (url, data, token) => {
   };
 };
 
+const deleteConfig = (url, token) => {
+  return {
+    method: "DELETE",
+    url: API_END_POINT + url,
+    headers: {
+      Authorization: "Bearer " + token,
+      "Content-type": "application/json",
+    },
+  };
+};
+
 // 로그인
 export const login = async (userData) => {
   const res = await axios(postConfig("/user/login", userData));
@@ -177,4 +188,11 @@ export const getPost = async (accountName, token) => {
     getConfigWithToken(`/post/${accountName}/userpost`, token)
   );
   return res;
+};
+
+// 게시글 삭제
+export const deletePost = async (post_id, token) => {
+  const res = await axios(deleteConfig(`/post/${post_id}`, token));
+  if (res.data.message === "삭제되었습니다.") return true;
+  else return false;
 };

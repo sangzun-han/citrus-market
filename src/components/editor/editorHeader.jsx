@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import styles from "./editorHeader.module.css";
 
 const EditorHeader = ({ valid, onSubmit }) => {
+  console.log(valid);
   const allInput = valid === true ? styles.on : "";
   const history = useHistory();
   return (
@@ -15,6 +16,7 @@ const EditorHeader = ({ valid, onSubmit }) => {
         <button
           className={`${styles.btn_upload} ${allInput}`}
           onClick={onSubmit}
+          disabled={!valid}
         >
           업로드
         </button>

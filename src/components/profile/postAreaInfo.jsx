@@ -2,11 +2,12 @@ import React from "react";
 import { API_END_POINT } from "../../constants";
 import styles from "./postAreaInfo.module.css";
 
-const PostAreaInfo = ({ post }) => {
+const PostAreaInfo = ({ post, handleModal }) => {
   const date = post.createdAt;
   const year = date.substring(0, 4);
   const month = date.substring(5, 7);
   const day = date.substring(8, 10);
+
   return (
     <>
       <section className={styles.post_user}>
@@ -22,7 +23,7 @@ const PostAreaInfo = ({ post }) => {
             </div>
           </div>
 
-          <div className={styles.more_img}>
+          <div className={styles.more_img} onClick={() => handleModal(post.id)}>
             <img src="/images/profile/s-icon-more-vertical.png" alt="more" />
           </div>
         </header>

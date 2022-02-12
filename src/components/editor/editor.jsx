@@ -86,13 +86,14 @@ const Editor = ({ isLogin }) => {
       if (res.status !== 200) {
         alert("에러 : ", res.status);
       } else {
+        history.push("/profile");
         alert("게시글이 등록되었습니다.");
-        return true;
       }
     });
   };
 
-  const onSubmit = async () => {
+  const onSubmit = async (event) => {
+    event.preventDefault();
     const postData = {
       post: {
         content: textAreaRef.current.value,
