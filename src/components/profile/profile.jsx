@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./profile.module.css";
 
 import { getCookie } from "../../service/cookie";
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import {
   deletePost,
   getInfo,
@@ -19,7 +19,6 @@ import Logout from "../logout/logout";
 import PostModal from "../postModal/postModal";
 
 const Profile = ({ isLogin, setIsLogin }) => {
-  const history = useHistory();
   const accountName = getCookie("accountname");
   const token = getCookie("token");
   const [info, setInfo] = useState("");

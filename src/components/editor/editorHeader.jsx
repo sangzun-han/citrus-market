@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import styles from "./editorHeader.module.css";
 
 const EditorHeader = ({ valid, onSubmit }) => {
-  console.log(valid);
   const allInput = valid === true ? styles.on : "";
   const history = useHistory();
   return (

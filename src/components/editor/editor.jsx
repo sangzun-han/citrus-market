@@ -86,8 +86,8 @@ const Editor = ({ isLogin }) => {
       if (res.status !== 200) {
         alert("에러 : ", res.status);
       } else {
-        history.push("/profile");
         alert("게시글이 등록되었습니다.");
+        history.push("/profile");
       }
     });
   };
@@ -104,11 +104,9 @@ const Editor = ({ isLogin }) => {
       imageUpload(imageRef.current.files).then((res) => {
         postData.post.image = res;
         posting(postData);
-        history.push("/profile");
       });
     } else {
       posting(postData);
-      history.push("/profile");
     }
   };
 
