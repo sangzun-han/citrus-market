@@ -81,6 +81,17 @@ const Editor = ({ isLogin }) => {
     else setValid(false);
   };
 
+  const posting = async (postData) => {
+    await post(postData, token).then((res) => {
+      if (res.status !== 200) {
+        alert("에러 : ", res.status);
+      } else {
+        alert("게시글이 등록되었습니다.");
+        return true;
+      }
+    });
+  };
+
   const onSubmit = async () => {
     const postData = {
       post: {
@@ -91,12 +102,13 @@ const Editor = ({ isLogin }) => {
     if (imageRef.current.files.length) {
       imageUpload(imageRef.current.files).then((res) => {
         postData.post.image = res;
+        posting(postData);
+        history.push("/profile");
       });
-    } else postData.post.image = "";
-
-    await post(postData, token).then((res) => {
-      if (res) history.push("/profile");
-    });
+    } else {
+      posting(postData);
+      history.push("/profile");
+    }
   };
 
   useEffect(() => {

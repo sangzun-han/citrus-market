@@ -1,4 +1,5 @@
 import React from "react";
+import { API_END_POINT } from "../../constants";
 import styles from "./postAreaInfo.module.css";
 
 const PostAreaInfo = ({ post }) => {
@@ -33,7 +34,7 @@ const PostAreaInfo = ({ post }) => {
         </div>
 
         <div className={styles.post_img}>
-          <img src={post.image} alt="post-img" />
+          <img src={`${API_END_POINT}/${post.image}`} alt="post-img" />
         </div>
         <div className={styles.follow_info}>
           <div className={styles.follow}>
