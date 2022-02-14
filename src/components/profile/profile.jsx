@@ -110,7 +110,14 @@ const Profile = ({ isLogin, setIsLogin }) => {
           ""
         )}
         {postModal ? <PostModal postDeleteModal={postDeleteModal} /> : ""}
-        {deleteModal ? <DeleteModal postDelete={postDelete} /> : ""}
+        {deleteModal ? (
+          <DeleteModal
+            postDelete={postDelete}
+            setDeleteModal={setDeleteModal}
+          />
+        ) : (
+          ""
+        )}
       </div>
     </>
   );
