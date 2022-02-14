@@ -51,7 +51,7 @@ function App() {
       <Route path="/profile">
         <Profile isLogin={isLogin} setIsLogin={setIsLogin} />
       </Route>
-      <Route path="/post/:id">
+      <Route path="/post/:postID">
         <PostDetail isLogin={isLogin} />
       </Route>
       <Route path="/search">
