@@ -15,6 +15,7 @@ import ProfileUpdate from "./components/profileUpdate/profileUpdate";
 import ProductUpload from "./components/productUpload/productUpload";
 import Follower from "./components/follower/follower";
 import Editor from "./components/editor/editor";
+import PostDetail from "./components/postDetail/postDetail";
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -49,6 +50,9 @@ function App() {
       </Route>
       <Route path="/profile">
         <Profile isLogin={isLogin} setIsLogin={setIsLogin} />
+      </Route>
+      <Route path="/post/:id">
+        <PostDetail isLogin={isLogin} />
       </Route>
       <Route path="/search">
         <Search isLogin={isLogin} />
