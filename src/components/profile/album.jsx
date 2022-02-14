@@ -1,25 +1,17 @@
 import React from "react";
-import styles from "./album.module.css";
+import AlbumInfo from "./albumInfo";
 import PostAreaTop from "./postAreaTop";
+import styles from "./album.module.css";
 
-const Album = ({ setAlbum }) => {
+const Album = ({ posts, setAlbum }) => {
   return (
     <>
       <PostAreaTop setAlbum={setAlbum} />
-      <section className={styles.album}>
-        <div className={styles.post_img}>
-          <img
-            className={styles.img}
-            src="/assets/product-img-example.png"
-            alt="post-img"
-          />
-          <img
-            className={styles.icon_layer}
-            src="/images/basic/iccon-img-layers.png"
-            alt="layer"
-          />
-        </div>
-      </section>
+      <div className={styles.album}>
+        {posts.map((post) => {
+          return <AlbumInfo post={post} />;
+        })}
+      </div>
     </>
   );
 };

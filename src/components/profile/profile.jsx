@@ -91,7 +91,7 @@ const Profile = ({ isLogin, setIsLogin }) => {
         <ProfileInfo info={info} />
         <Product products={products} />
         {album ? (
-          <Album setAlbum={setAlbum} />
+          <Album posts={posts} setAlbum={setAlbum} />
         ) : (
           <PostArea
             posts={posts}
