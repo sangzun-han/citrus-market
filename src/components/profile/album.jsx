@@ -4,10 +4,23 @@ import PostAreaTop from "./postAreaTop";
 
 const Album = ({ setAlbum }) => {
   return (
-    <section className={styles.album}>
+    <>
       <PostAreaTop setAlbum={setAlbum} />
-      as
-    </section>
+      <section className={styles.album}>
+        <div className={styles.post_img}>
+          <img
+            className={styles.img}
+            src="/assets/product-img-example.png"
+            alt="post-img"
+          />
+          <img
+            className={styles.icon_layer}
+            src="/images/basic/iccon-img-layers.png"
+            alt="layer"
+          />
+        </div>
+      </section>
+    </>
   );
 };
 export default Album;
