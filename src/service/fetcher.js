@@ -196,3 +196,9 @@ export const deletePost = async (post_id, token) => {
   if (res.data.message === "삭제되었습니다.") return true;
   else return false;
 };
+
+// 게시글 상세
+export const getPostDetail = async (post_id, token) => {
+  const res = await axios(getConfigWithToken(`/post/${post_id}`, token));
+  return res;
+};
