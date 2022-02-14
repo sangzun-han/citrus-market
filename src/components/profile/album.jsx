@@ -9,7 +9,7 @@ const Album = ({ posts, setAlbum }) => {
       <PostAreaTop setAlbum={setAlbum} />
       <div className={styles.album}>
         {posts.map((post) => {
-          return <AlbumInfo post={post} />;
+          return <AlbumInfo key={post.id} post={post} />;
         })}
       </div>
     </>
