@@ -1,22 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { getComment } from "../../service/fetcher";
+import React from "react";
+import styles from "./comment.module.css";
+
 import CommentInfo from "./commentInfo";
 
-const Comment = ({ postID, token }) => {
-  const [comments, setComments] = useState([]);
-  useEffect(() => {
-    getComment(postID, token).then((res) => {
-      setComments(res.data.comment);
-    });
-  }, [postID, token]);
-
+const Comment = ({ comments }) => {
   return (
-    <>
+    <div className={styles.scroll}>
       {comments &&
         comments.map((comment) => {
           return <CommentInfo key={comment.id} comment={comment} />;
         })}
-    </>
+    </div>
   );
 };
 

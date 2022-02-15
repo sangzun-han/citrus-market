@@ -203,6 +203,14 @@ export const getPostDetail = async (post_id, token) => {
   return res;
 };
 
+// 댓글 작성
+export const uploadComment = async (post_id, commentData, token) => {
+  const res = await axios(
+    postConfigWithTokenAndData(`/post/${post_id}/comments`, commentData, token)
+  );
+  return res;
+};
+
 // 댓글 리스트
 export const getComment = async (post_id, token) => {
   const res = await axios(
