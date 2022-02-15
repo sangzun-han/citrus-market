@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Redirect } from "react-router-dom";
+import { getCookie } from "../../service/cookie";
+import { getFollowContent } from "../../service/fetcher";
 import Header from "../header/header";
 import Nav from "../nav/nav";
 import styles from "./home.module.css";
 
 const Home = ({ isLogin }) => {
   const history = useHistory();
-  if (!isLogin) return <Redirect to={"/email-login"} />;
+  const token = getCookie("token");
 
+  useEffect(() => {
+    getFollowContent(token).then((res) => {
+      console.log(res);
+    });
+  }, [token]);
+
+  if (!isLogin) return <Redirect to={"/email-login"} />;
   return (
     <article className={styles.container}>
       <Header />

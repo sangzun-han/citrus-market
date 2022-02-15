@@ -9,11 +9,12 @@ const PostArea = ({
   postModal,
   setPostModal,
   handleModal,
+  album,
   setAlbum,
 }) => {
   return (
     <main className={styles.home_post}>
-      <PostAreaTop setAlbum={setAlbum} />
+      <PostAreaTop album={album} setAlbum={setAlbum} />
       {posts.map((post) => {
         return (
           <PostAreaInfo

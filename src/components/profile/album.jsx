@@ -3,10 +3,10 @@ import AlbumInfo from "./albumInfo";
 import PostAreaTop from "./postAreaTop";
 import styles from "./album.module.css";
 
-const Album = ({ posts, setAlbum }) => {
+const Album = ({ posts, album, setAlbum }) => {
   return (
     <>
-      <PostAreaTop setAlbum={setAlbum} />
+      <PostAreaTop album={album} setAlbum={setAlbum} />
       <div className={styles.album}>
         {posts.map((post) => {
           return <AlbumInfo key={post.id} post={post} />;

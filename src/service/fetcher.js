@@ -218,3 +218,9 @@ export const getComment = async (post_id, token) => {
   );
   return res;
 };
+
+// 팔로워 게시글 목록
+export const getFollowContent = async (token) => {
+  const res = await axios(getConfigWithToken("/post/feed", token));
+  return res;
+};

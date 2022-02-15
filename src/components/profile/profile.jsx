@@ -91,11 +91,12 @@ const Profile = ({ isLogin, setIsLogin }) => {
         <ProfileInfo info={info} />
         <Product products={products} />
         {album ? (
-          <Album posts={posts} setAlbum={setAlbum} />
+          <Album posts={posts} album={album} setAlbum={setAlbum} />
         ) : (
           <PostArea
             posts={posts}
             handleModal={handleModal}
+            album={album}
             setAlbum={setAlbum}
           />
         )}
