@@ -1,0 +1,61 @@
+.nav_container {
+  position: relative;
+  padding: 13px 20px;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  border-top: 0.5px solid #dbdbdb;
+}
+
+.profile_img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-right: 18px;
+}
+
+.profile_img img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.comment_input {
+  width: 100%;
+}
+
+.comment_input input {
+  width: 95%;
+  padding: 12px 0px;
+  border: none;
+  outline: none;
+}
+
+.comment_input input::placeholder {
+  font-soze: 14px;
+  line-height: 18px;
+  color: #c4c4c4;
+}
+
+.btn_wrap {
+  width: 26px;
+  height: 18px;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+}
+
+.btn_wrap .btn_comment {
+  width: 26px;
+  height: 18px;
+  border: none;
+  font-size: 14px;
+  line-height: 18px;
+  color: #c4c4c4;
+}
+
+.btn_wrap .btn_comment .on {
+  color: #f26e22;
+}
