@@ -58,7 +58,7 @@ function App() {
         <Search isLogin={isLogin} />
       </Route>
       <Route path="/user-profile/:accountName">
-        <UserProfile isLogin={isLogin} />
+        <UserProfile isLogin={isLogin} setIsLogin={setIsLogin} />
       </Route>
       <Route path="/profile-update">
         <ProfileUpdate isLogin={isLogin} />

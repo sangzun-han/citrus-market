@@ -1,0 +1,35 @@
+.header {
+  width: 100%;
+  height: 44px;
+  border: 0.5px solid #dbdbdb;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 21px 9px;
+  margin-bottom: 16px;
+}
+
+.post_list {
+  width: 26px;
+  height: 26px;
+  border: none;
+  cursor: pointer;
+}
+
+.post_list img {
+  width: 26px;
+  height: 26px;
+}
+
+.post_album {
+  width: 26px;
+  height: 26px;
+  border: none;
+  cursor: pointer;
+  margin-left: 9px;
+}
+
+.post_album img {
+  width: 26px;
+  height: 26px;
+}

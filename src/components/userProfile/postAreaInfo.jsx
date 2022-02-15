@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
+import React from "react";
 import { API_END_POINT } from "../../constants";
-import styles from "./postDetailInfo.module.css";
+import styles from "./postAreaInfo.module.css";
 
-const PostDetailInfo = ({ post }) => {
+const PostAreaInfo = ({ post, handleModal }) => {
   const date = post.createdAt;
   const year = date.substring(0, 4);
   const month = date.substring(5, 7);
@@ -23,7 +23,7 @@ const PostDetailInfo = ({ post }) => {
             </div>
           </div>
 
-          <div className={styles.more_img}>
+          <div className={styles.more_img} onClick={() => handleModal(post.id)}>
             <img src="/images/profile/s-icon-more-vertical.png" alt="more" />
           </div>
         </header>
@@ -35,14 +35,7 @@ const PostDetailInfo = ({ post }) => {
         </div>
 
         <div className={styles.post_img}>
-          {post.image.includes(`${API_END_POINT}`) ? (
-            <img src={post.image.split(",")[0]} alt="post-img" />
-          ) : (
-            <img
-              src={`${API_END_POINT}/${post.image.split(",")[0]}`}
-              alt="post-img"
-            />
-          )}
+          <img src={post.image.split(",")[0]} alt="post-img" />
         </div>
         <div className={styles.follow_info}>
           <div className={styles.follow}>
@@ -64,4 +57,4 @@ const PostDetailInfo = ({ post }) => {
   );
 };
 
-export default PostDetailInfo;
+export default PostAreaInfo;
