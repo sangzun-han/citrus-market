@@ -35,17 +35,20 @@ const PostDetail = ({ isLogin }) => {
   };
 
   useEffect(() => {
+    let getInfoData = true;
+
     getPostDetail(postID, token).then((res) => {
-      setPost(res.data.post);
+      if (getInfoData) setPost(res.data.post);
     });
 
     getInfo(accountName, token).then((res) => {
-      setProfileImage(res.data.profile.image);
+      if (getInfoData) setProfileImage(res.data.profile.image);
     });
 
     getComment(postID, token).then((res) => {
-      setComments(res.data.comments);
+      if (getInfoData) setComments(res.data.comments);
     });
+    return () => (getInfoData = false);
   }, [comments, accountName, postID, token]);
 
   if (!isLogin) return <Redirect to={"/email-login"} />;
