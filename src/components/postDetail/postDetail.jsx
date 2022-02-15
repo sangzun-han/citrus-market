@@ -22,6 +22,13 @@ const PostDetail = ({ isLogin }) => {
   const [profileImage, setProfileImage] = useState("");
   const [post, setPost] = useState({});
 
+  const [valid, setValid] = useState(false);
+
+  const checkComment = () => {
+    if (inputRef.current.value) setValid(true);
+    else setValid(false);
+  };
+
   const onComment = (event) => {
     event.preventDefault();
     const commentData = {
@@ -62,6 +69,8 @@ const PostDetail = ({ isLogin }) => {
         <CommentInput
           profileImage={profileImage}
           inputRef={inputRef}
+          checkComment={checkComment}
+          valid={valid}
           onComment={onComment}
         />
       )}

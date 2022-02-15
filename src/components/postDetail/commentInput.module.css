@@ -46,7 +46,7 @@
   transform: translateY(-50%);
 }
 
-.btn_wrap .btn_comment {
+.btn_comment {
   width: 26px;
   height: 18px;
   border: none;
@@ -55,6 +55,6 @@
   color: #c4c4c4;
 }
 
-.btn_wrap .btn_comment .on {
+.on {
   color: #f26e22;
 }
