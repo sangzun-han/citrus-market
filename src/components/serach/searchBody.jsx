@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { API_END_POINT } from "../../constants";
 import styles from "./searchBody.module.css";
 
 const SearchBody = ({ userData, searchRef }) => {
   const { image, username, accountname } = userData;
-
   const highlight = (username) => {
     const start = username.indexOf(searchRef.current.value);
     const end = searchRef.current.value.length + start;
@@ -26,7 +26,11 @@ const SearchBody = ({ userData, searchRef }) => {
     <Link to={`/user-profile/${accountname}`}>
       <section className={styles.wrap}>
         <div className={styles.profile_img}>
-          <img src={image} alt="profile" />
+          {image.includes(`${API_END_POINT}`) ? (
+            <img src={image} alt="profile" />
+          ) : (
+            <img src={`${API_END_POINT}/${image}`} alt="post-img" />
+          )}
         </div>
         <div className={styles.info}>
           {highlight(username)}
