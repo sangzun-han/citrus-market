@@ -25,7 +25,7 @@ const PostDetail = ({ isLogin }) => {
     <>
       <ProfileHeader modal={modal} setModal={setModal} />
       {post.author && <PostDetailInfo post={post} />}
-      <Comment />
+      <Comment postID={postID} token={token} />
     </>
   );
 };

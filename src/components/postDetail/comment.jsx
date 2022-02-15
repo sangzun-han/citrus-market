@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { getComment } from "../../service/fetcher";
 import styles from "./comment.module.css";
 
-const Comment = () => {
+const Comment = ({ postID, token }) => {
+  useEffect(() => {
+    getComment(postID, token).then((res) => {
+      console.log(res);
+    });
+  }, []);
+
   return (
     <>
       <section className={styles.comment_user}>

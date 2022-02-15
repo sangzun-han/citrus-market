@@ -202,3 +202,11 @@ export const getPostDetail = async (post_id, token) => {
   const res = await axios(getConfigWithToken(`/post/${post_id}`, token));
   return res;
 };
+
+// 댓글 리스트
+export const getComment = async (post_id, token) => {
+  const res = await axios(
+    getConfigWithToken(`/post/${post_id}/comments`, token)
+  );
+  return res;
+};
