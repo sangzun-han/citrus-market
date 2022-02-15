@@ -1,11 +1,10 @@
 import React from "react";
+import FeedInfo from "./feedInfo";
 
-const Feed = (props) => {
-  return (
-    <div>
-      <h1>feed</h1>
-    </div>
-  );
+const Feed = ({ posts }) => {
+  return posts.map((post) => {
+    return <FeedInfo key={post.id} post={post} />;
+  });
 };
 
 export default Feed;
