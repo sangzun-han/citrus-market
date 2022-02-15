@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import ProfileHeader from "../profile/profileHeader";
 import PostDetailInfo from "./postDetailInfo";
 import { Redirect } from "react-router-dom";
+import Comment from "./comment";
 
 const PostDetail = ({ isLogin }) => {
   const { postID } = useParams();
@@ -23,8 +24,8 @@ const PostDetail = ({ isLogin }) => {
   return (
     <>
       <ProfileHeader modal={modal} setModal={setModal} />
-
       {post.author && <PostDetailInfo post={post} />}
+      <Comment />
     </>
   );
 };

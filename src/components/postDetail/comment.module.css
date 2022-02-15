@@ -1,0 +1,64 @@
+.comment_user {
+  display: flex;
+  margin: 0px 21px;
+  margin-top: 20px;
+}
+
+.comment_header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user_info {
+  display: flex;
+}
+
+.user_name .name {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #000000;
+  margin-bottom: 2px;
+}
+
+.user_name .accountname {
+  font-size: 12px;
+  line-height: 14px;
+  color: #767676;
+  margin-bottom: 16px;
+}
+
+.profile_img {
+  width: 42px;
+  height: 42px;
+  margin-right: 12px;
+  border-radius: 50%;
+}
+
+.profile_img img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.comment_desc {
+  display: flex;
+  justify-content: flex-start;
+  width: 95%;
+  margin-bottom: 16px;
+  margin-left: 73px;
+}
+
+.comment_desc p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #333333;
+}
