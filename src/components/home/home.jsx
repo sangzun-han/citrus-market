@@ -22,7 +22,7 @@ const Home = ({ isLogin }) => {
   return (
     <article className={styles.container}>
       <Header />
-      {posts ? (
+      {posts.length >= 1 ? (
         posts && (
           <div className={styles.scroll}>
             <Feed posts={posts} />
