@@ -4,7 +4,6 @@ import { API_END_POINT } from "../../constants";
 import styles from "./feedInfo.module.css";
 
 const FeedInfo = ({ post }) => {
-  console.log(post);
   const date = post.createdAt;
   const year = date.substring(0, 4);
   const month = date.substring(5, 7);
