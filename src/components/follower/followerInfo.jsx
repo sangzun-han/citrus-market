@@ -7,16 +7,17 @@ const FollowerInfo = ({ info, token }) => {
   const [follow, setFollow] = useState(isfollow);
 
   const onFollow = () => {
-    userFollow(accountname, token).then(() => {
+    userFollow(accountname, token).then((res) => {
       setFollow(true);
     });
   };
 
   const unFollow = () => {
-    userUnFollow(accountname, token).then(() => {
+    userUnFollow(accountname, token).then((res) => {
       setFollow(false);
     });
   };
+
   return (
     <div className={styles.container}>
       <div className={styles.profile_img}>
@@ -28,11 +29,11 @@ const FollowerInfo = ({ info, token }) => {
       </div>
       <div className={styles.follow}>
         {follow ? (
-          <button className={styles.btn_cancle} onClick={() => unFollow}>
+          <button className={styles.btn_cancle} onClick={unFollow}>
             취소
           </button>
         ) : (
-          <button className={styles.btn_follow} onClick={() => onFollow}>
+          <button className={styles.btn_follow} onClick={onFollow}>
             팔로우
           </button>
         )}
