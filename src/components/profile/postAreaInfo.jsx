@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { API_END_POINT } from "../../constants";
 import styles from "./postAreaInfo.module.css";
 
@@ -9,7 +10,7 @@ const PostAreaInfo = ({ post, handleModal }) => {
   const day = date.substring(8, 10);
 
   return (
-    <>
+    <Link to={`/post/${post.id}`}>
       <section className={styles.post_user}>
         <header className={styles.post_header}>
           <div className={styles.user_info}>
@@ -56,7 +57,7 @@ const PostAreaInfo = ({ post, handleModal }) => {
           </span>
         </div>
       </section>
-    </>
+    </Link>
   );
 };
 
