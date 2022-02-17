@@ -28,11 +28,11 @@ const FollowerInfo = ({ info, token }) => {
       </div>
       <div className={styles.follow}>
         {follow ? (
-          <button className={styles.btn_cancle} onClick={unFollow}>
+          <button className={styles.btn_cancle} onClick={() => unFollow}>
             취소
           </button>
         ) : (
-          <button className={styles.btn_follow} onClick={onFollow}>
+          <button className={styles.btn_follow} onClick={() => onFollow}>
             팔로우
           </button>
         )}
