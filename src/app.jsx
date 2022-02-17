@@ -1,5 +1,5 @@
 import "./app.css";
-import { Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getCookie } from "./service/cookie";
 import Splash from "./components/splash/splash";
@@ -17,6 +17,7 @@ import Follower from "./components/follower/follower";
 import Editor from "./components/editor/editor";
 import PostDetail from "./components/postDetail/postDetail";
 import Following from "./components/following/following";
+import NotFound from "./components/404/notFound";
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -33,50 +34,55 @@ function App() {
   if (splash) return <Splash />;
 
   return (
-    <>
-      <Route exact path="/">
-        <Login isLogin={isLogin} />
-      </Route>
-      <Route path="/email-login">
-        <LoginEmail isLogin={isLogin} setIsLogin={setIsLogin} />
-      </Route>
-      <Route path="/signup">
-        <Signup isLogin={isLogin} />
-      </Route>
-      <Route path="/home">
-        <Home isLogin={isLogin} />
-      </Route>
-      <Route path="/chatList">
-        <ChatList isLogin={isLogin} />
-      </Route>
-      <Route path="/profile">
-        <Profile isLogin={isLogin} setIsLogin={setIsLogin} />
-      </Route>
-      <Route path="/post/:postID">
-        <PostDetail isLogin={isLogin} />
-      </Route>
-      <Route path="/search">
-        <Search isLogin={isLogin} />
-      </Route>
-      <Route path="/user-profile/:accountName">
-        <UserProfile isLogin={isLogin} setIsLogin={setIsLogin} />
-      </Route>
-      <Route path="/profile-update">
-        <ProfileUpdate isLogin={isLogin} />
-      </Route>
-      <Route path="/product-upload">
-        <ProductUpload isLogin={isLogin} />
-      </Route>
-      <Route path="/follower/:accountName">
-        <Follower isLogin={isLogin} />
-      </Route>
-      <Route path="/following/:accountName">
-        <Following isLogin={isLogin} />
-      </Route>
-      <Route path="/editor">
-        <Editor isLogin={isLogin} />
-      </Route>
-    </>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Login isLogin={isLogin} />
+        </Route>
+        <Route path="/email-login">
+          <LoginEmail isLogin={isLogin} setIsLogin={setIsLogin} />
+        </Route>
+        <Route path="/signup">
+          <Signup isLogin={isLogin} />
+        </Route>
+        <Route path="/home">
+          <Home isLogin={isLogin} />
+        </Route>
+        <Route path="/chatList">
+          <ChatList isLogin={isLogin} />
+        </Route>
+        <Route path="/profile">
+          <Profile isLogin={isLogin} setIsLogin={setIsLogin} />
+        </Route>
+        <Route path="/post/:postID">
+          <PostDetail isLogin={isLogin} />
+        </Route>
+        <Route path="/search">
+          <Search isLogin={isLogin} />
+        </Route>
+        <Route path="/user-profile/:accountName">
+          <UserProfile isLogin={isLogin} setIsLogin={setIsLogin} />
+        </Route>
+        <Route path="/profile-update">
+          <ProfileUpdate isLogin={isLogin} />
+        </Route>
+        <Route path="/product-upload">
+          <ProductUpload isLogin={isLogin} />
+        </Route>
+        <Route path="/follower/:accountName">
+          <Follower isLogin={isLogin} />
+        </Route>
+        <Route path="/following/:accountName">
+          <Following isLogin={isLogin} />
+        </Route>
+        <Route path="/editor">
+          <Editor isLogin={isLogin} />
+        </Route>
+        <Route path="*">
+          <NotFound />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
