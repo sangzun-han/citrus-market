@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { userFollow, userUnFollow } from "../../service/fetcher";
+
 import styles from "./followerInfo.module.css";
 
 const FollowerInfo = ({ info, accountName, token }) => {
   const { image, username, intro, isfollow } = info;
-
   const [follow, setFollow] = useState(isfollow);
 
   const onFollow = () => {
@@ -14,11 +14,10 @@ const FollowerInfo = ({ info, accountName, token }) => {
   };
 
   const unFollow = () => {
-    userUnFollow(accountName, token).then((res) => {
+    userUnFollow(accountName, token).then(() => {
       setFollow(false);
     });
   };
-
   return (
     <div className={styles.container}>
       <div className={styles.profile_img}>

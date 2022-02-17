@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { getCookie } from "../../service/cookie";
 import { getFollowerList } from "../../service/fetcher";
+
 import FollowerHeader from "./followerHeader";
 import FollowerInfo from "./followerInfo";
 

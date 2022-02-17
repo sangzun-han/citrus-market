@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { API_END_POINT } from "../../constants";
 import styles from "./feedInfo.module.css";
 
 const FeedInfo = ({ post }) => {
