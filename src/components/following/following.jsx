@@ -22,14 +22,7 @@ const Following = ({ isLogin }) => {
     <>
       <FollowerHeader />
       {infos.map((info) => {
-        return (
-          <FollowerInfo
-            accountName={accountName}
-            token={token}
-            key={info._id}
-            info={info}
-          />
-        );
+        return <FollowerInfo token={token} key={info._id} info={info} />;
       })}
     </>
   );

@@ -98,6 +98,7 @@ const Profile = ({ isLogin, setIsLogin }) => {
             handleModal={handleModal}
             album={album}
             setAlbum={setAlbum}
+            token={token}
           />
         )}
         <Nav />

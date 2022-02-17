@@ -11,6 +11,7 @@ const PostArea = ({
   handleModal,
   album,
   setAlbum,
+  token,
 }) => {
   return (
     <main className={styles.home_post}>
@@ -23,6 +24,7 @@ const PostArea = ({
             postModal={postModal}
             setPostModal={setPostModal}
             handleModal={handleModal}
+            token={token}
           />
         );
       })}
