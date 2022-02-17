@@ -12,7 +12,6 @@ const Following = ({ isLogin }) => {
 
   useEffect(() => {
     getFollowingList(accountName, token).then((res) => {
-      console.log(res);
       setInfos(res.data);
     });
   }, [accountName, token]);
@@ -23,7 +22,14 @@ const Following = ({ isLogin }) => {
     <>
       <FollowerHeader />
       {infos.map((info) => {
-        return <FollowerInfo key={info._id} info={info} />;
+        return (
+          <FollowerInfo
+            accountName={accountName}
+            token={token}
+            key={info._id}
+            info={info}
+          />
+        );
       })}
     </>
   );

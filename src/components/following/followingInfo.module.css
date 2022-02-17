@@ -63,3 +63,16 @@
   line-height: 15px;
   color: #ffffff;
 }
+
+.follow .btn_cancle {
+  width: 56px;
+  height: 28px;
+  background: #fffff;
+  border-radius: 26px;
+  border: 1px solid #dbdbdb;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  color: #767676;
+}

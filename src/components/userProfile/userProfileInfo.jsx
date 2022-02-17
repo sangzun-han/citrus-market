@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { userFollow, userUnFollow } from "../../service/fetcher";
 import styles from "./userProfileInfo.module.css";
 

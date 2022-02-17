@@ -11,7 +11,7 @@ const ProfileInfo = ({ info }) => {
       <div className={styles.profile_info}>
         <div
           className={styles.followers}
-          onClick={() => history.push("/follower")}
+          onClick={() => history.push(`/follower/${accountname}`)}
         >
           <p className={styles.followers_count}>{followerCount}</p>
           <p className={styles.follow}>followers</p>
@@ -21,7 +21,7 @@ const ProfileInfo = ({ info }) => {
         </div>
         <div
           className={styles.followings}
-          onClick={() => history.push("/following")}
+          onClick={() => history.push(`/following/${accountname}`)}
         >
           <p className={styles.followings_count}>{followingCount}</p>
           <p className={styles.follow}>followings</p>

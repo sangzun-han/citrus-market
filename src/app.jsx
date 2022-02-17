@@ -67,10 +67,10 @@ function App() {
       <Route path="/product-upload">
         <ProductUpload isLogin={isLogin} />
       </Route>
-      <Route path="/follower">
+      <Route path="/follower/:accountName">
         <Follower isLogin={isLogin} />
       </Route>
-      <Route path="/following">
+      <Route path="/following/:accountName">
         <Following isLogin={isLogin} />
       </Route>
       <Route path="/editor">
