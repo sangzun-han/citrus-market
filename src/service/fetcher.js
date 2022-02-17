@@ -130,7 +130,7 @@ export const userFollow = async (accountName, token) => {
 // 언팔로우
 export const userUnFollow = async (accountName, token) => {
   const res = await axios(
-    postConfigWithToken(`/profile/${accountName}/unfollow`, token)
+    deleteConfig(`/profile/${accountName}/unfollow`, token)
   );
   return res;
 };
