@@ -16,6 +16,7 @@ import ProductUpload from "./components/productUpload/productUpload";
 import Follower from "./components/follower/follower";
 import Editor from "./components/editor/editor";
 import PostDetail from "./components/postDetail/postDetail";
+import Following from "./components/following/following";
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -68,6 +69,9 @@ function App() {
       </Route>
       <Route path="/follower">
         <Follower isLogin={isLogin} />
+      </Route>
+      <Route path="/following">
+        <Following isLogin={isLogin} />
       </Route>
       <Route path="/editor">
         <Editor isLogin={isLogin} />

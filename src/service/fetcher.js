@@ -164,6 +164,14 @@ export const getFollowerList = async (accountName, token) => {
   return res;
 };
 
+// 팔로잉 리스트(내가 팔로우한 사용자 목록)
+export const getFollowingList = async (accountName, token) => {
+  const res = await axios(
+    getConfigWithToken(`/profile/${accountName}/following`, token)
+  );
+  return res;
+};
+
 // 상품 이미지 등록
 
 export const imagesUpload = async (files) => {

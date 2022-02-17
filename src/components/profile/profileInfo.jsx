@@ -19,7 +19,10 @@ const ProfileInfo = ({ info }) => {
         <div className={styles.profile_img}>
           <img src={image} alt="profile" />
         </div>
-        <div className={styles.followings}>
+        <div
+          className={styles.followings}
+          onClick={() => history.push("/following")}
+        >
           <p className={styles.followings_count}>{followingCount}</p>
           <p className={styles.follow}>followings</p>
         </div>
