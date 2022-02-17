@@ -232,3 +232,15 @@ export const getFollowContent = async (token) => {
   const res = await axios(getConfigWithToken("/post/feed", token));
   return res;
 };
+
+// 좋아요
+export const like = async (post_id, token) => {
+  const res = await axios(postConfigWithToken(`/post/${post_id}/heart`, token));
+  return res;
+};
+
+// 좋아요 취소
+export const cancleLike = async (post_id, token) => {
+  const res = await axios(deleteConfig(`/pist/${post_id}/unheart`, token));
+  return res;
+};
