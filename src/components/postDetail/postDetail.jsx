@@ -63,7 +63,7 @@ const PostDetail = ({ isLogin }) => {
   return (
     <>
       <ProfileHeader modal={modal} setModal={setModal} />
-      {post.author && <PostDetailInfo post={post} />}
+      {post.author && <PostDetailInfo post={post} token={token} />}
       {comments && <Comment comments={comments} />}
       {profileImage && (
         <CommentInput

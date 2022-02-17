@@ -104,6 +104,7 @@ const UserProfile = ({ isLogin, setIsLogin }) => {
         ) : (
           <PostArea
             posts={posts}
+            token={token}
             handleModal={handleModal}
             album={album}
             setAlbum={setAlbum}

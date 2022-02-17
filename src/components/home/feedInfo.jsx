@@ -12,7 +12,6 @@ const FeedInfo = ({ post, token }) => {
   const day = date.substring(8, 10);
 
   const handleHeart = () => {
-    console.log(hearted);
     if (hearted) {
       unHeart(post.id, token).then((res) => {
         if (res.data.post) {
@@ -76,8 +75,10 @@ const FeedInfo = ({ post, token }) => {
           <span className={styles.count}>{heartCount}</span>
         </div>
         <div className={styles.comment}>
-          <img src="/images/profile/icon-message-circle.png" alt="comment" />
-          <span className={styles.count}>{post.commentCount}</span>
+          <Link to={`/post/${post.id}`}>
+            <img src="/images/profile/icon-message-circle.png" alt="comment" />
+            <span className={styles.count}>{post.commentCount}</span>
+          </Link>
         </div>
       </div>
       <div className={styles.date}>
