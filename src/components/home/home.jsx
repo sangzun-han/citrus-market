@@ -25,7 +25,7 @@ const Home = ({ isLogin }) => {
       {posts.length >= 1 ? (
         posts && (
           <div className={styles.scroll}>
-            <Feed posts={posts} />
+            <Feed token={token} posts={posts} />
           </div>
         )
       ) : (

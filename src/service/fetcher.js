@@ -234,13 +234,13 @@ export const getFollowContent = async (token) => {
 };
 
 // 좋아요
-export const like = async (post_id, token) => {
+export const heart = async (post_id, token) => {
   const res = await axios(postConfigWithToken(`/post/${post_id}/heart`, token));
   return res;
 };
 
 // 좋아요 취소
-export const cancleLike = async (post_id, token) => {
-  const res = await axios(deleteConfig(`/pist/${post_id}/unheart`, token));
+export const unHeart = async (post_id, token) => {
+  const res = await axios(deleteConfig(`/post/${post_id}/unheart`, token));
   return res;
 };

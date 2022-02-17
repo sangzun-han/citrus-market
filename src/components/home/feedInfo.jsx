@@ -1,12 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { heart, unHeart } from "../../service/fetcher";
 import styles from "./feedInfo.module.css";
 
-const FeedInfo = ({ post }) => {
+const FeedInfo = ({ post, token }) => {
+  const [hearted, setHearted] = useState(post.hearted);
+  const [heartCount, setHeartCount] = useState(post.heartCount);
   const date = post.createdAt;
   const year = date.substring(0, 4);
   const month = date.substring(5, 7);
   const day = date.substring(8, 10);
+
+  const handleHeart = () => {
+    console.log(hearted);
+    if (hearted) {
+      unHeart(post.id, token).then((res) => {
+        if (res.data.post) {
+          setHearted(false);
+          setHeartCount(heartCount - 1);
+        }
+      });
+    } else {
+      heart(post.id, token).then((res) => {
+        if (res.data.post) {
+          setHearted(true);
+          setHeartCount(heartCount + 1);
+        }
+      });
+    }
+  };
+
   return (
     <>
       <Link to={`/user-profile/${post.author.accountname}`}>
@@ -45,8 +68,12 @@ const FeedInfo = ({ post }) => {
       </Link>
       <div className={styles.follow_info}>
         <div className={styles.follow}>
-          <img src="/images/profile/icon-heart.png" alt="follow" />
-          <span className={styles.count}>{post.heartCount}</span>
+          <img
+            src={`/images/basic/icon-heart${hearted ? "-active" : ""}.png`}
+            alt="heart"
+            onClick={handleHeart}
+          />
+          <span className={styles.count}>{heartCount}</span>
         </div>
         <div className={styles.comment}>
           <img src="/images/profile/icon-message-circle.png" alt="comment" />

@@ -86,6 +86,7 @@
 .follow {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .follow img {

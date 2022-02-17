@@ -1,9 +1,9 @@
 import React from "react";
 import FeedInfo from "./feedInfo";
 
-const Feed = ({ posts }) => {
+const Feed = ({ token, posts }) => {
   return posts.map((post) => {
-    return <FeedInfo key={post.id} post={post} />;
+    return <FeedInfo key={post.id} token={token} post={post} />;
   });
 };
 

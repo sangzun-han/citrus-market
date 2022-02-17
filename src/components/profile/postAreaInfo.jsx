@@ -43,7 +43,7 @@ const PostAreaInfo = ({ post, handleModal }) => {
         </div>
         <div className={styles.follow_info}>
           <div className={styles.follow}>
-            <img src="/images/profile/icon-heart.png" alt="follow" />
+            <img src="/images/basic/icon-heart.png" alt="follow" />
             <span className={styles.count}>{post.heartCount}</span>
           </div>
           <div className={styles.comment}>
