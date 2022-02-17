@@ -5,10 +5,7 @@
 
 ---
 
-스택 : `React` 
-
-라이브러리 : `postcss` `axios` `cookie universal`
-
+Stack : `React` 
 
 ---
 
