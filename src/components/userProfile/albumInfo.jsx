@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { API_END_POINT } from "../../constants";
 import styles from "./albumInfo.module.css";
 
 const AlbumInfo = ({ post }) => {
