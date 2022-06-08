@@ -3,11 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getCookie } from "./service/cookie";
 import Splash from "./components/splash/splash";
+import NotFound from "./components/404/notFound";
 import { Index } from "./pages/index";
 import { Profiles } from "./pages/profiles";
 import { ProfilesUpdate } from "./pages/profilesUpdate";
-import ProductUpload from "./components/productUpload/productUpload";
-import NotFound from "./components/404/notFound";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 import { Chat } from "./pages/chat";
@@ -18,6 +17,7 @@ import { Feed } from "./pages/feed";
 import { OtherProfile } from "./pages/otherProfile";
 import { Writing } from "./pages/writing";
 import { SearchPage } from "./pages/search";
+import { Product } from "./pages/product";
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -66,7 +66,7 @@ function App() {
           <ProfilesUpdate isLogin={isLogin} />
         </Route>
         <Route path="/product-upload">
-          <ProductUpload isLogin={isLogin} />
+          <Product isLogin={isLogin} />
         </Route>
         <Route path="/follower/:accountName">
           <Followers isLogin={isLogin} />
