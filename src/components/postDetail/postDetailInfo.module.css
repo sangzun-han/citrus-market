@@ -47,6 +47,8 @@
   flex-direction: column;
   margin-bottom: 16px;
   border-bottom: 0.5px solid #dbdbdb;
+  height: 340px;
+  overflow-y: auto;
 }
 
 .post_desc {

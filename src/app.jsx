@@ -3,21 +3,21 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getCookie } from "./service/cookie";
 import Splash from "./components/splash/splash";
-import Login from "./components/login/login";
-import LoginEmail from "./components/loginEmail/loginEmail";
-import Signup from "./components/signup/signup";
-import Home from "./components/home/home";
-import ChatList from "./components/chatList/chatList";
-import Profile from "./components/profile/profile";
-import Search from "./components/serach/search";
-import UserProfile from "./components/userProfile/userProfile";
-import ProfileUpdate from "./components/profileUpdate/profileUpdate";
+import { Index } from "./pages/index";
+import { Profiles } from "./pages/profiles";
+import { ProfilesUpdate } from "./pages/profilesUpdate";
 import ProductUpload from "./components/productUpload/productUpload";
-import Follower from "./components/follower/follower";
-import Editor from "./components/editor/editor";
-import PostDetail from "./components/postDetail/postDetail";
-import Following from "./components/following/following";
 import NotFound from "./components/404/notFound";
+import { Login } from "./pages/login";
+import { Register } from "./pages/register";
+import { Chat } from "./pages/chat";
+import { Post } from "./pages/post";
+import { Followers } from "./pages/followers";
+import { Followings } from "./pages/followings";
+import { Feed } from "./pages/feed";
+import { OtherProfile } from "./pages/otherProfile";
+import { Writing } from "./pages/writing";
+import { SearchPage } from "./pages/search";
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -32,51 +32,50 @@ function App() {
   }, []);
 
   if (splash) return <Splash />;
-
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <Login isLogin={isLogin} />
+          <Index isLogin={isLogin} />
         </Route>
         <Route path="/email-login">
-          <LoginEmail isLogin={isLogin} setIsLogin={setIsLogin} />
+          <Login isLogin={isLogin} setIsLogin={setIsLogin} />
         </Route>
         <Route path="/signup">
-          <Signup isLogin={isLogin} />
+          <Register isLogin={isLogin} />
         </Route>
         <Route path="/home">
-          <Home isLogin={isLogin} />
+          <Feed isLogin={isLogin} />
         </Route>
         <Route path="/chatList">
-          <ChatList isLogin={isLogin} />
+          <Chat isLogin={isLogin} />
         </Route>
         <Route path="/profile">
-          <Profile isLogin={isLogin} setIsLogin={setIsLogin} />
+          <Profiles isLogin={isLogin} setIsLogin={setIsLogin} />
         </Route>
         <Route path="/post/:postID">
-          <PostDetail isLogin={isLogin} />
+          <Post isLogin={isLogin} />
         </Route>
         <Route path="/search">
-          <Search isLogin={isLogin} />
+          <SearchPage isLogin={isLogin} />
         </Route>
         <Route path="/user-profile/:accountName">
-          <UserProfile isLogin={isLogin} setIsLogin={setIsLogin} />
+          <OtherProfile isLogin={isLogin} setIsLogin={setIsLogin} />
         </Route>
         <Route path="/profile-update">
-          <ProfileUpdate isLogin={isLogin} />
+          <ProfilesUpdate isLogin={isLogin} />
         </Route>
         <Route path="/product-upload">
           <ProductUpload isLogin={isLogin} />
         </Route>
         <Route path="/follower/:accountName">
-          <Follower isLogin={isLogin} />
+          <Followers isLogin={isLogin} />
         </Route>
         <Route path="/following/:accountName">
-          <Following isLogin={isLogin} />
+          <Followings isLogin={isLogin} />
         </Route>
         <Route path="/editor">
-          <Editor isLogin={isLogin} />
+          <Writing isLogin={isLogin} />
         </Route>
         <Route path="*">
           <NotFound />
