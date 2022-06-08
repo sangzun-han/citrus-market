@@ -14,7 +14,7 @@ const Following = ({ isLogin }) => {
     getFollowingList(accountName, token).then((res) => {
       setInfos(res.data);
     });
-  }, [accountName, token]);
+  }, [accountName, token, infos]);
 
   if (!isLogin) return <Redirect to={"/email-login"} />;
 
